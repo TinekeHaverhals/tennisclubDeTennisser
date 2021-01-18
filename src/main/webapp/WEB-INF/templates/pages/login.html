@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <title>Tennisclub: Den Tennisser</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../../resources/static/css/css.css">
+</head>
+
+<body>
+    <nav>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+            <i class="fas fa-bars"></i>
+        </label>
+        <img src="../../../../resources/static/images/logo1.png" class="logoTennis">
+        <label class="logo">De Tennisser</label>
+        <ul>
+            <li><a class="active" href="../index.html">De Tennisser</a></li>
+            <li><a href="lidmaatschap.html">lidmaatschap</a></li>
+            <li><a href="tennisles.html">TennisLessen</a></li>
+            <li><a href="photo.html">Foto's</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </nav>
+
+    <img src="../../../../resources/static/images/background.jpg" alt="Tennisveld" class="backgroundles">
+
+    <div class="bg-text">
+        <h1 style="font-size:50px">Login</h1>
+    </div>
+
+    <h2>Tennisclub: Den tennisser</h2>
+    <h1>Login</h1>
+
+    <div class="register">
+
+        <form method="post" th:action = "@{/login}">
+            <div class="container">
+                <label><b>Email</b></label>
+                <input type="text" name = "email" th:text = "${TennisPlayer.email}">
+                <label><b>Wachtwoord</b></label>
+                <input type="password" name ="password"  th:field = "${TennisPlayer.password}">
+                <button type="submit" class="registerbtn" value="login">Login</button>
+            </div>
+        </form>
+    </div>
+
+    <h1>Registreer</h1>
+    <p> Ik heb nog geen account en wil er een aanmaken.</p>
+
+    <a href="../pages/register.html">
+        <p>Registreren</p>
+    </a>
+    </button>
+
+
+    <br>
+    <br>
+    <br>
+
+    <footer>
+        <br>
+        <p class="footertext">TennisClub: Den Tennisser bedankt u voor uw bezoek aan onze website bij vragen kan u een mailtje sturen. <a href="mailto:detennisser@hotmail.com">detennisser@hotmail.com</a> </p>
+
+        <br>
+    </footer>
+
+</body>
+
+</html>
