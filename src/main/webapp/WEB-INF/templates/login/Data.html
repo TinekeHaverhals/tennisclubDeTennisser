@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">s
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="utf-8">
@@ -71,10 +71,10 @@
         Mijn gegevens aanpassen
     </h3>
 
-    <button class="buttonData">Email wijzigen</button>
-    <button class="buttonData">Telefoonnummer wijzigen</button>
-    <button class="buttonData">Adres wijzigen</button>
-    <button class="buttonData">Wachtwoord wijzigen</button>
+    <button class="buttonData" onclick="window.location.href='ChangeMail.html'">Email wijzigen</button>
+    <button class="buttonData" onclick="window.location.href='ChangeTel.html'">Telefoonnummer wijzigen</button>
+    <button class="buttonData" onclick="window.location.href='ChangeAdress.html'">Adres wijzigen</button>
+    <button class="buttonData" onclick="window.location.href='ChangePassword.html'">Wachtwoord wijzigen</button>
     <br>
     <br>
     <br>
@@ -87,7 +87,7 @@
         In de lijst vindt u de gegevens van alle spelers. Zo kan u andere spelers contacteren voor een matchke te spelen.
         <br> Andere spelers kunnen uw adres niet lezen.
     </p>
-    <button class="buttonData " href="members.html ">Bekijken </button>
+    <button class="buttonData "  onclick="window.location.href='ListAllTennisPlayers.html'">Bekijken </button>
 
     <img src="../../../../resources/static/images/lijn-Tineke.svg">
     <h3>
@@ -95,8 +95,16 @@
     </h3>
 
     <button class="buttonData" onclick="window.location.href='Reservation.html'"> Reservering maken/ bekijken</button>
-
     <br>
+    <img src="../../../../resources/static/images/lijn-Tineke.svg">
+    <br>
+    <div class="register">
+        <form  action="ChoiceMenu.html">
+            <button type="submit"  class="registerbtn">Terug naar de vorige pagina</button>
+        </form>
+    </div>
+    <br>
+
     <br>
     <footer>
         <br>

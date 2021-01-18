@@ -36,7 +36,6 @@
     <h1>Login</h1>
 
     <div class="register">
-
         <form method="post" th:action = "@{/login}">
             <div class="container">
                 <label><b>Email</b></label>
@@ -48,13 +47,24 @@
         </form>
     </div>
 
-    <h1>Registreer</h1>
-    <p> Ik heb nog geen account en wil er een aanmaken.</p>
 
-    <a href="../pages/register.html">
-        <p>Registreren</p>
-    </a>
-    </button>
+    <br>
+    <div class="register">
+
+        <h1>Registreer</h1>
+        <p> Ik heb nog geen account en wil er een aanmaken.</p>
+
+        <form  action="register.html">
+            <button type="submit"  class="registerbtn">Registreren</button>
+        </form>
+    </div>
+
+    <br>
+    <div class="register">
+        <form  action="../index.html">
+            <button type="submit"  class="registerbtn">Terug naar de vorige pagina</button>
+        </form>
+    </div>
 
 
     <br>
