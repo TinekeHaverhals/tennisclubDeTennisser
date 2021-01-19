@@ -20,22 +20,25 @@ import java.sql.SQLException;
 @Controller
 public class TennisPlayerController {
 
+    @Autowired
     private TennisPlayerServices tennisPlayerServices;
 
     // logincontrole
 
     @GetMapping("login")
     public String login (Model model){
-        model.addAttribute("TennisPlayer", new TennisPlayer("", ""));
+        model.addAttribute("tennisPlayer", new TennisPlayer("", ""));
         return "pages/login";
     }
 
     @PostMapping("login")
-    public String login2(@ModelAttribute("TennisPlayer")TennisPlayer tennisPlayerReceived, HttpSession session) throws SQLException {
+    public String login2(@ModelAttribute("tennisPlayer")TennisPlayer tennisPlayerReceived, HttpSession session) throws SQLException {
+        System.out.println(tennisPlayerReceived.getEmail()+ tennisPlayerReceived.getPassword());
         TennisPlayer tennisPlayer = tennisPlayerServices.getUserByPassWordAndEmail(tennisPlayerReceived.getEmail(), tennisPlayerReceived.getPassword());
         if (tennisPlayer != null){
             System.out.println("user has logged in");
-            return "redirect:login/ChoiceMenu";
+            session.setAttribute("user", tennisPlayer);
+            return "redirect:ChoiceMenu";
         }
         else System.out.println("not logged in");
         return "pages/login";
@@ -47,18 +50,12 @@ public class TennisPlayerController {
 
     //wijzigen mail
 
-    //wijzigen tel
-
-    //wijzigen adres
-
-    //wijzigen wachtwoord
-
-    // gegevens weergeven van alle leden
-
-    @GetMapping("AllTennisPlayer")
-    public String getAllTennisPlayer (Model model) throws SQLException {
-        model.addAttribute("AllTennisPlayers", tennisPlayerServices.getAllTennisPlayer());
-        return "login/Data";
+    @GetMapping("ChoiceMenu")
+    public String getChangeMail (Model model, HttpSession session)  throws SQLException {
+        model.addAttribute("tennisPlayer", session.getAttribute("user"));
+       // model.addAttribute("ChangeMail", tennisPlayerServices.getChangeEmail(""));
+        return "login/ChoiceMenu";
     }
+
 
 }

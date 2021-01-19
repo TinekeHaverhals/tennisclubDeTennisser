@@ -1,12 +1,18 @@
 package TennisClubDeTennisser.Model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.sql.Date;
 
 /**
  * Tineke Haverhals
  * 8/01/21.
  */
+@Entity
 public class TennisPlayer {
+    @Id
+    @GeneratedValue
     private int id;
     private String name;
     private String firstname;

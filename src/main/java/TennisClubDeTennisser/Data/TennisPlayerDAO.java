@@ -1,6 +1,7 @@
 package TennisClubDeTennisser.Data;
 
 import TennisClubDeTennisser.Model.TennisPlayer;
+import org.springframework.stereotype.Repository;
 
 import javax.swing.plaf.nimbus.State;
 import java.sql.*;
@@ -11,6 +12,7 @@ import java.util.List;
  * Tineke Haverhals
  * 8/01/21.
  */
+@Repository
 public class TennisPlayerDAO {
 
 
@@ -102,51 +104,51 @@ public class TennisPlayerDAO {
         return null;
     }
 
-    public List<TennisPlayer> getChangeEmail(String Email, int TennisPlayerId) throws SQLException {
+    public List<TennisPlayer> getChangeEmail(String NewEmail, String OldEmail) throws SQLException {
         Connection connection = ConnectionFactory.getConnection();
 
-        PreparedStatement statement = connection.prepareStatement("UPDATE TennisPlayer SET Email = ? WHERE id = ? ");
-        statement.setString(1, Email);
-        statement.setInt(2, TennisPlayerId);
+        PreparedStatement statement = connection.prepareStatement("UPDATE TennisPlayer SET Email = ? WHERE Email = ? ");
+        statement.setString(1, NewEmail);
+        statement.setString(2, OldEmail);
 
         int rs = statement.executeUpdate();
 
         return null;
     }
 
-    public List<TennisPlayer> getChangePhoneNumber(int PhoneNumber, int TennisPlayerId) throws SQLException {
+    public List<TennisPlayer> getChangePhoneNumber(int NewPhoneNumber, int OldPhoneNumber) throws SQLException {
         Connection connection = ConnectionFactory.getConnection();
 
         PreparedStatement statement = connection.prepareStatement("UPDATE TennisPlayer SET PhoneNumber = ? WHERE id = ? ");
-        statement.setInt(1, PhoneNumber);
-        statement.setInt(2, TennisPlayerId);
+        statement.setInt(1, NewPhoneNumber);
+        statement.setInt(2, OldPhoneNumber);
 
         int rs = statement.executeUpdate();
 
         return null;
     }
 
-    public List<TennisPlayer> getChangeAddress(int TennisPlayerId, String Street, int StreetNumber,String Township, int PostalCode ) throws SQLException {
+    public List<TennisPlayer> getChangeAddress(String Email, String Street, int StreetNumber,String Township, int PostalCode ) throws SQLException {
         Connection connection = ConnectionFactory.getConnection();
 
-        PreparedStatement statement = connection.prepareStatement("UPDATE TennisPlayer SET Street = ?, StreetNumber = ?, Township =?, PostalCode = ? WHERE id = ?;");
+        PreparedStatement statement = connection.prepareStatement("UPDATE TennisPlayer SET Street = ?, StreetNumber = ?, Township =?, PostalCode = ? WHERE Email = ?;");
         statement.setString(1, Street);
         statement.setInt(2, StreetNumber);
         statement.setString(3, Township);
         statement.setInt(4, PostalCode);
-        statement.setInt(5, TennisPlayerId);
+        statement.setString(5, Email);
 
         int rs = statement.executeUpdate();
 
         return null;
     }
 
-    public List<TennisPlayer> getChangePassword(String Password, int TennisPlayerId) throws SQLException {
+    public List<TennisPlayer> getChangePassword(String Password, String Email) throws SQLException {
         Connection connection = ConnectionFactory.getConnection();
 
-        PreparedStatement statement = connection.prepareStatement("UPDATE TennisPlayer SET Password = ? WHERE id = ?;");
+        PreparedStatement statement = connection.prepareStatement("UPDATE TennisPlayer SET Password = ? WHERE Email = ?;");
         statement.setString(1, Password);
-        statement.setInt(2, TennisPlayerId);
+        statement.setString(2, Email);
 
         int rs = statement.executeUpdate();
 
@@ -155,8 +157,10 @@ public class TennisPlayerDAO {
 
     public TennisPlayer getUserByPassWordAndEmail(String email, String password) throws SQLException {
         Connection connection = ConnectionFactory.getConnection();
-        Statement statement = connection.createStatement();
-        ResultSet rs = statement.executeQuery("SELECT * FROM TennisPlayer Where Email=? and Password= ?;");
+        PreparedStatement statement = connection.prepareStatement("SELECT * FROM TennisPlayer Where Email=? and Password= ?;");
+        statement.setString(1, email);
+        statement.setString(2, password);
+        ResultSet rs = statement.executeQuery();
         TennisPlayer tennisPlayer= null;
 
         if (rs!= null) {

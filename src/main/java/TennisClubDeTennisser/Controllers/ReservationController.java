@@ -1,6 +1,7 @@
 package TennisClubDeTennisser.Controllers;
 
 import TennisClubDeTennisser.Services.ReservationServices;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * Tineke Haverhals
@@ -8,6 +9,7 @@ import TennisClubDeTennisser.Services.ReservationServices;
  */
 public class ReservationController {
 
+    @Autowired
     private ReservationServices reservationServices;
 
     //nieuwe reservatie

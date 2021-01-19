@@ -35,6 +35,8 @@
 
     <form method="post" th:action = "@{/login}">
         <div class="container">
+            <label><b>Geef uw emailadres in</b></label>
+            <input type="text" name = "email" th:text = "${TennisPlayer.email}">
             <label><b>Straat</b></label>
             <input type="text" name = "email" th:text = "${TennisPlayer.email}">
             <label><b>Huisnummer</b></label>

@@ -2,6 +2,7 @@ package TennisClubDeTennisser.Services;
 
 import TennisClubDeTennisser.Data.PointDAO;
 import TennisClubDeTennisser.Model.Points;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -12,6 +13,7 @@ import java.util.List;
  */
 public class PointServices {
 
+    @Autowired
     private PointDAO pointDAO = new PointDAO();
 
     public List<Points> getPointsByID(int TennisPlayerID) throws SQLException {

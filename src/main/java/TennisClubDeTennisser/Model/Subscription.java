@@ -1,10 +1,19 @@
 package TennisClubDeTennisser.Model;
 
+import org.hibernate.annotations.Generated;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
 /**
  * Tineke Haverhals
  * 8/01/21.
  */
+@Entity
 public class Subscription {
+    @Id
+    @GeneratedValue
     private int id;
     private int tennisPlayerId;
     private String description;

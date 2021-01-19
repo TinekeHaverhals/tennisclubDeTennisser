@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <title>Login den tennisser</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../../../resources/static/css/css.css">
+    <link rel="stylesheet" href="css/css.css">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </head>
 
@@ -15,7 +15,7 @@
         <label for="check" class="checkbtn">
             <i class="fas fa-bars"></i>
         </label>
-        <img src="../../../../resources/static/images/logo1.png" class="logoTennis">
+        <img src="images/logo1.png" class="logoTennis">
         <label class="logo">Den Tennisser</label>
         <ul>
             <li><a class="active" href="ChoiceMenu.html">Den tennisser</a></li>
@@ -25,10 +25,14 @@
         </ul>
     </nav>
 
-    <img src="../../../../resources/static/images/background.jpg" alt="Tennisveld" class="tennisveld">
+    <img src="images/background.jpg" alt="Tennisveld" class="tennisveld">
 
     <h2> Tennisclub: Den tennisser</h2>
-    <h1>Welkom beste Tennisser</h1>
+    <h1>Welkom beste
+
+    </h1>
+
+    <h1 th:text="${tennisPlayer.name}" th:unless="${session==null}"></h1>
 
     <p>
         Beste tennisser!

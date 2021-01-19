@@ -1,16 +1,20 @@
 package TennisClubDeTennisser.Model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
 /**
  * Tineke Haverhals
  * 8/01/21.
  */
+@Entity
 public class Points {
-
+    @Id
+    @GeneratedValue
     private int id;
     private int single;
     private int doubles;
-
-    private TennisPlayer tennisPlayer;
 
     public  Points(){
     }
@@ -47,14 +51,7 @@ public class Points {
         return this;
     }
 
-    public TennisPlayer getTennisPlayer() {
-        return tennisPlayer;
-    }
 
-    public Points setTennisPlayer(TennisPlayer tennisPlayer) {
-        this.tennisPlayer = tennisPlayer;
-        return this;
-    }
 
     @Override
     public String toString() {
@@ -62,7 +59,6 @@ public class Points {
                 "id=" + id +
                 ", single=" + single +
                 ", doubles=" + doubles +
-                ", tennisPlayer=" + tennisPlayer +
                 '}';
     }
 

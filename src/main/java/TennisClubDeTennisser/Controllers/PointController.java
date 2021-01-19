@@ -2,6 +2,7 @@ package TennisClubDeTennisser.Controllers;
 
 import TennisClubDeTennisser.Services.PointServices;
 import org.dom4j.rule.Mode;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -13,6 +14,7 @@ import java.sql.SQLException;
  */
 public class PointController {
 
+    @Autowired
     private PointServices pointServices;
 
 

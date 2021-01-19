@@ -2,6 +2,7 @@ package TennisClubDeTennisser.Services;
 
 import TennisClubDeTennisser.Data.SubscriptionDAO;
 import TennisClubDeTennisser.Model.Subscription;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -12,6 +13,7 @@ import java.util.List;
  */
 public class SubscriptionServices {
 
+    @Autowired
     private SubscriptionDAO subscriptionDAO = new SubscriptionDAO();
 
     public List<Subscription> getAllSubscription() throws SQLException {

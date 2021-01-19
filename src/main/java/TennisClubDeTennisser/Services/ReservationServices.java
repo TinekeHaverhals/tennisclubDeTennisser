@@ -2,6 +2,7 @@ package TennisClubDeTennisser.Services;
 
 import TennisClubDeTennisser.Data.ReservationDAO;
 import TennisClubDeTennisser.Model.Reservation;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.sql.Date;
 import java.sql.SQLException;
@@ -13,6 +14,7 @@ import java.util.List;
  */
 public class ReservationServices {
 
+    @Autowired
     private ReservationDAO reservationDAO = new ReservationDAO();
 
     public List<Reservation> getAllReservation() throws SQLException {

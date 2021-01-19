@@ -3,6 +3,7 @@ package TennisClubDeTennisser.Services;
 import TennisClubDeTennisser.Data.TennisCourtDAO;
 import TennisClubDeTennisser.Data.TennisPlayerDAO;
 import TennisClubDeTennisser.Model.TennisCourt;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -13,6 +14,7 @@ import java.util.List;
  */
 public class TennisCourtServices {
 
+    @Autowired
     private TennisCourtDAO tennisCourtDAO = new TennisCourtDAO();
 
     public List<TennisCourt> getAllTennisCourt() throws SQLException {
