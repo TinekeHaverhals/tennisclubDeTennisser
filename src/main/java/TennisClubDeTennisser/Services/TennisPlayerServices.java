@@ -1,6 +1,7 @@
 package TennisClubDeTennisser.Services;
 
 import TennisClubDeTennisser.Data.ConnectionFactory;
+import TennisClubDeTennisser.Data.TennisCourtDAO;
 import TennisClubDeTennisser.Data.TennisPlayerDAO;
 import TennisClubDeTennisser.Model.TennisCourt;
 import TennisClubDeTennisser.Model.TennisPlayer;
@@ -31,10 +32,9 @@ public class TennisPlayerServices {
     }
 
     // Lijst alle spelers
-   public TennisPlayer getAllTennisPlayers(String name, String firstname, String gender, String email ) throws SQLException{
-        return (TennisPlayer) tennisPlayerDAO.getAllTennisPlayers(name, firstname, gender,email );
-   }
-
+    public  List<TennisPlayer> getAllTennisPlayer() throws SQLException{
+        return TennisPlayerDAO.getAllTennisPlayer();
+    }
     //wijzigen tel
     public List<TennisPlayer> getChangePhoneNumber(int phoneNumber, String email, String password) throws SQLException {
         return tennisPlayerDAO.getChangePhoneNumber(phoneNumber, email,password );
@@ -59,5 +59,6 @@ public class TennisPlayerServices {
     public List<TennisPlayer> getChangePassword( String password, String email ) throws SQLException {
         return tennisPlayerDAO.getChangePassword(password, email);
     }
+
 
 }

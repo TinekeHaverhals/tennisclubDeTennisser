@@ -91,11 +91,11 @@ public class TennisPlayerDAO {
         return tennisPlayer;
     }
 
-    // lijsta alle tennisspelers
-    public static List<TennisPlayer> getAllTennisPlayers(String name, String firstname, String gender, String email) throws SQLException {
+    // lijst alle tennisspelers
+    public static List<TennisPlayer> getAllTennisPlayer() throws SQLException {
         Connection connection = ConnectionFactory.getConnection();
         Statement statement = connection.createStatement();
-        ResultSet rs = statement.executeQuery("SELECT Name, FirstName, Gender, Email FROM TennisPlayer");
+        ResultSet rs = statement.executeQuery("SELECT Name, FirstName, Gender, Email, PhoneNumber FROM TennisPlayer");
         List<TennisPlayer> tennisPlayers = new ArrayList<>();
         TennisPlayer tennisPlayer = null;
         if (rs!= null){
@@ -105,10 +105,14 @@ public class TennisPlayerDAO {
                 tennisPlayer.setFirstname(rs.getString("FirstName"));
                 tennisPlayer.setGender(rs.getString("Gender"));
                 tennisPlayer.setEmail(rs.getString("Email"));
+                tennisPlayer.setPhoneNumber(rs.getInt("PhoneNumber"));
+                tennisPlayers.add(tennisPlayer);
             }
         }
         return tennisPlayers;
     }
+
+
 
     // verander telefoonnummer
     public List<TennisPlayer> getChangePhoneNumber(int phoneNumber, String email, String password) throws SQLException {

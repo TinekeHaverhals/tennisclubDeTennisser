@@ -44,13 +44,12 @@
         </tr>
         
         <!--/*@thymesVar id="tennisCourts" type="TennisClubDeTennisser"*/-->
+        <!--/*@thymesVar id="tennisCourt" type="TennisClubDeTennisser"*/-->
         <tr th:each = "allTennisCourt: ${tennisCourts}">
             <td>[[${tennisCourt.number}]]</td>
             <td>[[${tennisCourt.description}]]</td>
         </tr>
     </table>
-
-    <p> [[${tennisCourt.number}]]</p>
 
     <br>
     <img src="images/lijn-Tineke.svg">

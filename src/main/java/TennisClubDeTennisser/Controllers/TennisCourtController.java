@@ -26,7 +26,7 @@ public class TennisCourtController {
 
     @GetMapping("allTennisCourt")
     public String tennisCourt (Model model) throws SQLException {
-        model.addAttribute("tennisCourts", tennisCourtServices.getAllTennisCourt());
+        model.addAttribute("tennisCourt", tennisCourtServices.getAllTennisCourt());
         return "login/Reservation";
     }
 

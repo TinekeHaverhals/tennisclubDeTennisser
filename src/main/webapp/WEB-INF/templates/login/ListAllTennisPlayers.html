@@ -30,6 +30,9 @@
 <h2> Tennisclub: Den tennisser</h2>
 <h1>Lijst van alle tennisspelers</h1>
 <br>
+<p>
+    Hier vindt u de lijst van alle leden van de tennisclub De Tennisser!
+</p>
 <div class="register">
     <table>
         <tr>
@@ -37,19 +40,22 @@
             <th>Voornaam</th>
             <th>Geslacht</th>
             <th>Email</th>
+            <th>GSM Nummer</th>
 
         </tr>
-        <!--
-        <tr th:each = "allTennisPlayers: ${tennisPlayer}">
+
+        <tr th:each = "allTennisPlayers: ${tennisPlayers}">
             <td>[[${tennisPlayer.name}]]</td>
             <td>[[${tennisPlayer.firstname}]]</td>
             <td>[[${tennisPlayer.gender}]]</td>
             <td>[[${tennisPlayer.email}]]</td>
+            <td>[[${tennisPlayer.phoneNumber}]]</td>
         </tr>
-        -->
+
     </table>
 </div>
-
+<br>
+<br>
 <div  class="dataInfo">
     <button class="buttonData "  onclick="window.location.href='/ChoiceMenu'">Terug naar het beginscherm </button>
 </div>
