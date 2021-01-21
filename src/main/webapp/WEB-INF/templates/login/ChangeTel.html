@@ -10,6 +10,7 @@
 </head>
 
 <body>
+
 <nav>
     <input type="checkbox" id="check">
     <label for="check" class="checkbtn">
@@ -24,27 +25,26 @@
         <li><a href="/index">afmelden</a></li>
     </ul>
 </nav>
-
 <img src="images/background.jpg" alt="Tennisveld" class="tennisveld">
 
 <h2> Tennisclub: Den tennisser</h2>
-<h1>Lijst van alle tennisspelers</h1>
-<br>
+<h1>Wijzigen van de telefoonnummer</h1>
+
 <div class="register">
+
     <form method="post" th:action = "@{/login}">
         <div class="container">
-            <label><b>Email</b></label>
-            <!--/*@thymesVar id="oldEmail" type="TennisClubDeTennisser"*/-->
-            <input type="text" name = "oude email" th:text = "${tennisPlayer.oldEmail}">
-            <label><b>Wachtwoord</b></label>
-            <input type="text" name = "nieuwe email"  th:text = "${tennisPlayer.newEmail}">
-            <input type="submit" class="registerbtn" value="mail">
+            <label><b>oude telefoonnummer</b></label>
+           <!-- <input type="text" name = "email" th:text = "${TennisPlayer.email}">-->
+            <label><b>Nieuwe telefoonnummer</b></label>
+            <!--<input type="password" name ="password"  th:field = "${TennisPlayer.password}">-->
+            <button type="submit" class="registerbtn" value="login">Aanpassen</button>
         </div>
     </form>
 </div>
-
-<div  class="dataInfo">
-    <button class="buttonData "  onclick="window.location.href='/ChoiceMenu'">Terug naar het beginscherm </button>
+<br>
+<div class="register">
+    <button class="registerbtn"  onclick="window.location.href='/ChoiceMenu'">Terug naar de hoofdpagina </button>
 </div>
 <br>
 <br>

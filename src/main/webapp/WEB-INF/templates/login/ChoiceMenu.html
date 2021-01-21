@@ -18,10 +18,10 @@
         <img src="images/logo1.png" class="logoTennis">
         <label class="logo">Den Tennisser</label>
         <ul>
-            <li><a class="active" href="ChoiceMenu.html">Den tennisser</a></li>
-            <li><a href="Data.html">Gegevens</a></li>
-            <li><a href="Reservation.html">Reservering</a></li>
-            <li><a href="../index.html">afmelden</a></li>
+            <li><a class="active" href="/ChoiceMenu">Den tennisser</a></li>
+            <li><a href="/data">Gegevens</a></li>
+            <li><a href="/reservation">Reservering</a></li>
+            <li><a href="/index">afmelden</a></li>
         </ul>
     </nav>
 
@@ -32,26 +32,25 @@
 
     </h1>
 
-    <h1 th:text="${tennisPlayer.name}" th:unless="${session==null}"></h1>
+    <h1 th:text="${tennisPlayer.firstname}" th:unless="${session==null}"></h1>
 
-    <p>
-        Beste tennisser!
-        <br> Tennisclub Den Tennisser wenst u heel veel tennisplezier!
-    </p>
+    <p>Tennisclub Den Tennisser wenst u heel veel tennisplezier! </p>
     <br>
 
-    <button class="buttonChoiceMenu" onclick="window.location.href='Data.html'">
-        klik hier als je
+    <button class="buttonChoiceMenu" onclick="window.location.href='/data'">
+        klik hier voor
         <br>
-        <br> uw gegevens bekijken
-        <br> uw gegevens aanpassen
-        <br> leden hun gegevens bekijken </button>
+        <br> uw gegevens te bekijken
+        <br> uw gegevens aan te passen
+        <br> leden hun gegevenste bekijken
+    </button>
 
-    <button class="buttonChoiceMenu" onclick="window.location.href='Reservation.html'">
-        klik hier als je
+    <button class="buttonChoiceMenu" onclick="window.location.href='/reservation'">
+        klik hier voor
         <br>
-        <br>Tennisveld reserveren
-        <br> reservaties bekijken die lopend zijn</button>
+        <br>Een tennisveld reserveren
+        <br>Reservaties te bekijken die lopend zijn
+    </button>
 
     <br>
     <br>

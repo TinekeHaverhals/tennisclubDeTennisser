@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <title>Login den tennisser</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../../../resources/static/css/css.css">
+    <link rel="stylesheet" href="css/css.css">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </head>
 
@@ -15,76 +15,69 @@
         <label for="check" class="checkbtn">
             <i class="fas fa-bars"></i>
         </label>
-        <img src="../../../../resources/static/images/logo1.png" class="logoTennis">
+        <img src="images/logo1.png" class="logoTennis">
         <label class="logo">Den Tennisser</label>
         <ul>
-            <li><a class="active" href="ChoiceMenu.html">Den tennisser</a></li>
-            <li><a href="Data.html">Gegevens</a></li>
-            <li><a href="Reservation.html">Reservering</a></li>
-            <li><a href="../index.html">afmelden</a></li>
+            <li><a class="active" href="/ChoiceMenu">Den tennisser</a></li>
+            <li><a href="/data">Gegevens</a></li>
+            <li><a href="/reservation">Reservering</a></li>
+            <li><a href="/index">afmelden</a></li>
         </ul>
     </nav>
 
-    <img src="../../../../resources/static/images/background.jpg" alt="Tennisveld" class="tennisveld">
+    <img src="images/background.jpg" alt="Tennisveld" class="tennisveld">
 
     <h2> Tennisclub: Den tennisser</h2>
-    <h1>Welkom beste Tennisser</h1>
-
-    <p>
-        Beste tennisser!
-        <br> Tennisclub De Tennisser wenst u heel veel tennisplezier!
-
-    </p>
-
     <h3>
         Mijn profiel 
     </h3>
 
-    <p class="data">
-        Id
-        <br> [[${tennisPlayer.name}]]
-        <br> Voornaam
-        <br> Geslacht
-        <br> Geboortedatum
-        <br> Telefoonnummer
-        <br> Email
-        <br> Straat
-        <br> Huisnummer
-        <br> Gemeente
-        <br> Postcode
-        <br>
-    </p>
-    <img src="../../../../resources/static/images/lijn-Tineke.svg">
+<div class="dataInfo">
+    <p>Naam: [[${tennisPlayer.name}]]</p>
+    <p>Voornaam: [[${tennisPlayer.firstname}]] </p>
+    <p>Geslacht: [[${tennisPlayer.gender}]]</p>
+    <p>Verjaardag: [[${tennisPlayer.birthday}]]</p>
+    <p>GSM nummer: +32[[${tennisPlayer.phoneNumber}]]</p>
+    <p>Email: [[${tennisPlayer.email}]]</p>
+    <p>Straat: [[${tennisPlayer.street}]]</p>
+    <p>Huisnummer: [[${tennisPlayer.streetNumber}]]</p>
+    <p>Gemeente: [[${tennisPlayer.township}]]</p>
+    <p>Postcode: [[${tennisPlayer.postalCode}]]</p>
+</div>
+
+    <img src="images/lijn-Tineke.svg">
     <h3>
         Mijn speelpunten 
     </h3>
-
-    <p class="Points">
-        Enkelspel:
-        <br> Dubbelspel:
+    <div class="dataInfo">
+    <p>Enkelspeel punten : [[${tennisPlayer.single}]]</p>
+    <p>Dubbelspeel punten : [[${tennisPlayer.doubles}]]</p>
+    </div>
         <br>
-    </p>
 
-
-    <img src="../../../../resources/static/images/lijn-Tineke.svg">
-    <h3 NAME="update">
+   <img src="images/lijn-Tineke.svg">
+    <h3>
         Mijn gegevens aanpassen
     </h3>
 
-    <button class="buttonData" onclick="window.location.href='ChangeMail.html'">Email wijzigen</button>
-    <button class="buttonData" onclick="window.location.href='ChangeTel.html'">Telefoonnummer wijzigen</button>
-    <button class="buttonData" onclick="window.location.href='ChangeAddress.html'">Adres wijzigen</button>
-    <button class="buttonData" onclick="window.location.href='ChangePassword.html'">Wachtwoord wijzigen</button>
-    <br>
+    <div>
+        <a  class="buttonData" href="/email">Email wijzigen</a>
+        <a  class="buttonData" href="/tel">Telefoonnummer wijzigen</a>
+        <a  class="buttonData" href="/address">Adres wijzigen</a>
+        <a  class="buttonData" href="/password">Wachtwoord wijzigen</a>
+    </div>
     <br>
     <br>
 
-    <img src="../../../../resources/static/images/lijn-Tineke.svg">
-    <h3>
-        Abonnement + betaling
-    </h3>
+    <img src="images/lijn-Tineke.svg">
+    <h3>Informatie over jouw abonnement + betaling</h3>
+    <div class="dataInfo">
+        <p>Soort Abonnement : [[${tennisPlayer.subscriptionDescription}]]</p>
+        <p>Aantal maanden : [[${tennisPlayer.timeSubscription}]]</p>
+        <p>Heeft u betaald? : [[${tennisPlayer.paid}]]</p>
+    </div>
 
-    <img src="../../../../resources/static/images/lijn-Tineke.svg">
+    <img src="images/lijn-Tineke.svg">
     <h3>
         Leden van de tennisclub Den Tennisser
     </h3>
@@ -92,25 +85,22 @@
         In de lijst vindt u de gegevens van alle spelers. Zo kan u andere spelers contacteren voor een matchke te spelen.
         <br> Andere spelers kunnen uw adres niet lezen.
     </p>
-    <button class="buttonData "  onclick="window.location.href='ListAllTennisPlayers.html'">Bekijken </button>
+    <button class="buttonData"  onclick="window.location.href='/listAllTennisPlayers'">Bekijken </button>
 
-    <img src="../../../../resources/static/images/lijn-Tineke.svg">
+    <img src="images/lijn-Tineke.svg">
     <h3>
        Reservering maken
     </h3>
 
-    <button class="buttonData" onclick="window.location.href='Reservation.html'"> Reservering maken/ bekijken</button>
+    <button class="buttonData" onclick="window.location.href='/reservation'"> Reservering maken/ bekijken</button>
     <br>
     <br>
-    <img src="../../../../resources/static/images/lijn-Tineke.svg">
+    <img src="images/lijn-Tineke.svg">
     <br>
-    <div class="register">
-        <form  action="ChoiceMenu.html">
-            <button type="submit"  class="registerbtn">Terug naar de hoofdpagina</button>
-        </form>
+    <div  class="dataInfo">
+        <button class="buttonData "  onclick="window.location.href='/ChoiceMenu'">Terug naar het beginscherm </button>
     </div>
     <br>
-
     <br>
     <footer>
         <br>

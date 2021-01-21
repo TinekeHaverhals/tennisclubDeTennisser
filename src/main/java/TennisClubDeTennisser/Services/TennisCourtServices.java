@@ -1,23 +1,24 @@
 package TennisClubDeTennisser.Services;
 
 import TennisClubDeTennisser.Data.TennisCourtDAO;
-import TennisClubDeTennisser.Data.TennisPlayerDAO;
 import TennisClubDeTennisser.Model.TennisCourt;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.sql.SQLException;
-import java.util.List;
 
 /**
  * Tineke Haverhals
  * 18/01/21.
  */
+@Service
 public class TennisCourtServices {
 
     @Autowired
     private TennisCourtDAO tennisCourtDAO = new TennisCourtDAO();
 
-    public List<TennisCourt> getAllTennisCourt() throws SQLException {
+
+    public TennisCourt getAllTennisCourt() throws SQLException {
         return tennisCourtDAO.getAllTennisCourt();
     }
 }

@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <title>Login de tennisser</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../../../resources/static/css/css.css">
+    <link rel="stylesheet" href="css/css.css">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </head>
 
@@ -15,17 +15,17 @@
         <label for="check" class="checkbtn">
             <i class="fas fa-bars"></i>
         </label>
-        <img src="../../../../resources/static/images/logo1.png" class="logoTennis">
+        <img src="images/logo1.png" class="logoTennis">
         <label class="logo">De Tennisser</label>
         <ul>
-            <li><a class="active" href="ChoiceMenu.html">De tennisser</a></li>
-            <li><a href="Data.html">Gegevens</a></li>
-            <li><a href="Reservation.html">Reservering</a></li>
-            <li><a href="../index.html">afmelden</a></li>
+            <li><a class="active" href="/ChoiceMenu">De tennisser</a></li>
+            <li><a href="/data">Gegevens</a></li>
+            <li><a href="/reservation">Reservering</a></li>
+            <li><a href="/index">afmelden</a></li>
         </ul>
     </nav>
 
-    <img src="../../../../resources/static/images/background.jpg" alt="Tennisveld" class="tennisveld">
+    <img src="images/background.jpg" alt="Tennisveld" class="tennisveld">
 
     <h2> Tennisclub: De tennisser</h2>
     <h1>Welkom beste Tennisser</h1>
@@ -34,7 +34,22 @@
         Beste tennisser!
         <br> Tennisclub De Tennisser wenst u heel veel tennisplezier!
     </p>
+    <h3>
+        tennisvelden
+    </h3>
+    <table>
+        <tr>
+            <th>Nummer van het veld</th>
+            <th>Beschrijving</th>
+        </tr>
 
+        <tr>
+            <td> [[${tennisCourt.description}]]</td>
+            <td> [[${tennisPlayer.subscriptionDescription}]]</td>
+        </tr>
+    </table>
+    <br>
+    <img src="images/lijn-Tineke.svg">
     <h3>
         Tennisveld reserveren
     </h3>
@@ -43,36 +58,34 @@
 
     </p>
 
-    <img src="../../../../resources/static/images/lijn-Tineke.svg">
+    <img src="images/lijn-Tineke.svg">
     <h3>
        Mijn huidige reservaties bekijken
     </h3>
 
-    <img src="../../../../resources/static/images/lijn-Tineke.svg">
+    <img src="images/lijn-Tineke.svg">
     <h3>
       Mijn reservatie verwijderen
     </h3>
 
-    <img src="../../../../resources/static/images/lijn-Tineke.svg">
-    <h3>
-    Mijn gegevens bekijken en die van de andere spelers 
-    </h3>
+    <img src="images/lijn-Tineke.svg">
 
-    <button class="buttonData" onclick="window.location.href='Data.html'">Gegevens</button>
-
-    <br>
-    <br>
-    <img src="../../../../resources/static/images/lijn-Tineke.svg">
-    <br>
-    <div class="register">
-        <form  action="ChoiceMenu.html">
-            <button type="submit"  class="registerbtn">Terug naar de hoofdpagina</button>
-        </form>
+    <h3>Mijn gegevens bekijken en die van de andere spelers</h3>
+    <div  class="dataInfo">
+        <button class="buttonData "  onclick="window.location.href='/data'">Mijn gegevens bekijken</button>
     </div>
+    <br>
+
+    <img src="images/lijn-Tineke.svg">
+    <br>
+    <div  class="dataInfo">
+        <button class="buttonData "  onclick="window.location.href='/ChoiceMenu'">Terug naar het beginscherm </button>
+    </div>
+    <br>
     <br>
     <footer>
         <br>
-        <p class=" footertext ">TennisClub: Den Tennisser bedankt u voor uw bezoek aan onze website bij vragen kan u een mailtje sturen. <a href="mailto:dentennisser@hotmail.com ">dentennisser@hotmail.com</a> </p>
+        <p class="footertext">TennisClub: Den Tennisser bedankt u voor uw bezoek aan onze website bij vragen kan u een mailtje sturen. <a href="mailto:dentennisser@hotmail.com">dentennisser@hotmail.com</a> </p>
 
         <br>
     </footer>

@@ -16,14 +16,14 @@
             <i class="fas fa-bars"></i>
         </label>
         <img src="images/logo1.png" class="logoTennis">
-        <label class="logo">De Tennisser</label>
+        <label class="logo">Den Tennisser</label>
         <ul>
-            <li><a class="active" href="index.html">De Tennisser</a></li>
-            <li><a href="pages/lidmaatschap.html">lidmaatschap</a></li>
-            <li><a href="pages/tennisles.html">TennisLessen</a></li>
-            <li><a href="pagesphoto.html">Foto's</a></li>
-            <li><a href="login.html">Login</a></li>
-        </ul>
+           <li><a class="active" href="/index">Den Tennisser</a></li>
+           <li><a href="/lidmaatschap">Lidmaatschap</a></li>
+           <li><a href="/tennisles">TennisLessen</a></li>
+           <li><a href="/photo">Foto's</a></li>
+           <li><a href="/login">Login</a></li>
+         </ul>
     </nav>
 
     <img src="images/background.jpg" alt="Tennisveld" class="backgroundles">
@@ -39,10 +39,10 @@
         <form method="post" th:action = "@{/login}">
             <div class="container">
                 <label><b>Email</b></label>
-                <!--/*@thymesVar id="name" type="TennisClubDeTennisser"*/-->
                 <input type="text" name = "email" th:text = "${tennisPlayer.email}">
+                <label><b>Wachtwoord</b></label>
                 <input type="password" name = "password"  th:field = "${tennisPlayer.password}">
-                <input type="submit" value="login">
+                <input type="submit" class="registerbtn" value="login">
             </div>
         </form>
     </div>
@@ -50,20 +50,13 @@
 
     <br>
     <div class="register">
-
         <h1>Registreer</h1>
         <p> Ik heb nog geen account en wil er een aanmaken.</p>
-
-        <form  action="register.html">
-            <button type="submit"  class="registerbtn">Registreren</button>
-        </form>
+        <button class="registerbtn"  onclick="window.location.href='/register'">Registreren </button>
     </div>
 
-    <br>
     <div class="register">
-        <form  action="index.html">
-            <button type="submit"  class="registerbtn">Terug naar de vorige pagina</button>
-        </form>
+        <button class="registerbtn"  onclick="window.location.href='/index'">Terug naar de hoofdpagina </button>
     </div>
 
 

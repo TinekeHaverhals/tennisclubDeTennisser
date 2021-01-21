@@ -5,6 +5,7 @@ import TennisClubDeTennisser.Model.TennisPlayer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,11 +30,7 @@ public class TennisPlayerServices {
        return list;
     }
 
-    public List<TennisPlayer> getInfoById(int TennisPlayerId) throws Exception {
-        return tennisPlayerDAO.getInfoById(TennisPlayerId);
-    }
-
-    public List<TennisPlayer> getAddTennisPlayer(String Name, String FirstName,String Gender, int Birthday, int PhoneNumber, String Email, String Password, String Street, int StreetNumber, String Township, int PostalCode) throws Exception {
+    public TennisPlayer getAddTennisPlayer(String Name, String FirstName, String Gender, Date Birthday, int PhoneNumber, String Email, String Password, String Street, int StreetNumber, String Township, int PostalCode) throws Exception {
         return tennisPlayerDAO.getAddTennisPlayer(Name, FirstName, Gender, Birthday, PhoneNumber, Email, Password, Street, StreetNumber, Township, PostalCode);
     }
 

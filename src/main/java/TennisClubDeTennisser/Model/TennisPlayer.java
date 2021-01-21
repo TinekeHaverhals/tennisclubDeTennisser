@@ -18,13 +18,20 @@ public class TennisPlayer {
     private String firstname;
     private String gender;
     private Date birthday;
-    private int phonenumber;
+    private int phoneNumber;
     private String email;
     private String password;
     private String street;
     private int streetNumber;
     private String township;
     private int postalCode;
+    private int single;
+    private int doubles;
+    private String oldEmail;
+    private String newEmail;
+    private String subscriptionDescription;
+    private String timeSubscription;
+    private String paid;
 
     public TennisPlayer(){
     }
@@ -33,6 +40,21 @@ public class TennisPlayer {
         this.email = email;
         this.password = password;
     }
+
+    public TennisPlayer(String name, String firstname, String gender, Date birthday, int phoneNumber, String email, String password, String street, int streetNumber, String township,int postalCode){
+        this.name = name;
+        this.firstname = firstname;
+        this.gender = gender;
+        this.birthday = birthday;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.password = password;
+        this.street = street;
+        this.streetNumber = streetNumber;
+        this.township = township;
+        this.postalCode = postalCode;
+    }
+
 
     public int getId() {
         return id;
@@ -79,12 +101,12 @@ public class TennisPlayer {
         return this;
     }
 
-    public int getPhonenumber() {
-        return phonenumber;
+    public int getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public TennisPlayer setPhonenumber(int phonenumber) {
-        this.phonenumber = phonenumber;
+    public TennisPlayer setPhoneNumber(int phoneNumber) {
+        this.phoneNumber = phoneNumber;
         return this;
     }
 
@@ -140,6 +162,69 @@ public class TennisPlayer {
         return this;
     }
 
+    public int getSingle() {
+        return single;
+    }
+
+    public TennisPlayer setSingle(int single) {
+        this.single = single;
+        return this;
+    }
+
+    public int getDoubles() {
+        return doubles;
+    }
+
+    public TennisPlayer setDoubles(int doubles) {
+        this.doubles = doubles;
+        return this;
+    }
+
+    public String getOldEmail() {
+        return oldEmail;
+    }
+
+    public TennisPlayer setOldEmail(String oldEmail) {
+        this.oldEmail = oldEmail;
+        return this;
+    }
+
+    public String getNewEmail() {
+        return newEmail;
+    }
+
+    public TennisPlayer setNewEmail(String newEmail) {
+        this.newEmail = newEmail;
+        return this;
+    }
+
+    public String getSubscriptionDescription() {
+        return subscriptionDescription;
+    }
+
+    public TennisPlayer setSubscriptionDescription(String subscriptionDescription) {
+        this.subscriptionDescription = subscriptionDescription;
+        return this;
+    }
+
+    public String getTimeSubscription() {
+        return timeSubscription;
+    }
+
+    public TennisPlayer setTimeSubscription(String timeSubscription) {
+        this.timeSubscription = timeSubscription;
+        return this;
+    }
+
+    public String getPaid() {
+        return paid;
+    }
+
+    public TennisPlayer setPaid(String paid) {
+        this.paid = paid;
+        return this;
+    }
+
     @Override
     public String toString() {
         return "TennisPlayer{" +
@@ -148,13 +233,18 @@ public class TennisPlayer {
                 ", firstname='" + firstname + '\'' +
                 ", gender='" + gender + '\'' +
                 ", birthday=" + birthday +
-                ", phonenumber=" + phonenumber +
+                ", phoneNumber=" + phoneNumber +
                 ", email='" + email + '\'' +
                 ", Password='" + password + '\'' +
                 ", street='" + street + '\'' +
                 ", streetNumber=" + streetNumber +
                 ", township='" + township + '\'' +
                 ", postalCode=" + postalCode +
+                ", single=" + single +
+                ", doubles=" + doubles +
+                ", subscriptionDescription=" + subscriptionDescription +
+                ", timeSubscription=" + timeSubscription +
+                ", paid=" + paid +
                 '}';
     }
 
@@ -165,13 +255,18 @@ public class TennisPlayer {
                 ", firstname='" + firstname + '\'' +
                 ", gender='" + gender + '\'' +
                 ", birthday=" + birthday +
-                ", phonenumber=" + phonenumber +
+                ", phoneNumber=" + phoneNumber +
                 ", email='" + email + '\'' +
                 ", Password='" + password + '\'' +
                 ", street='" + street + '\'' +
                 ", streetNumber=" + streetNumber +
-                ", township='" + township + '\'' +
-                ", postalCode=" + postalCode +
+                ", singles='" + township + '\'' +
+                ", postalCode=" + postalCode + '\'' +
+                ", single=" + single + '\'' +
+                ", doubles=" + doubles +
+                ", subscriptionDescription=" + subscriptionDescription +
+                ", timeSubscription=" + timeSubscription +
+                ", paid=" + paid +
                 '}';
     }
 }

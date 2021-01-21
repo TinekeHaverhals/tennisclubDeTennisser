@@ -3,6 +3,7 @@ package TennisClubDeTennisser.Model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * Tineke Haverhals
@@ -13,7 +14,18 @@ public class TennisCourt {
     @Id
     @GeneratedValue
     private int id;
+    private String number;
     private String description;
+
+    public TennisCourt(){
+
+    }
+
+    public TennisCourt(String number, String description){
+       this.number = number;
+        this.description = description;
+    }
+
 
     public int getId() {
         return id;
@@ -21,6 +33,15 @@ public class TennisCourt {
 
     public TennisCourt setId(int id) {
         this.id = id;
+        return this;
+    }
+
+    public String getNumber() {
+        return number;
+    }
+
+    public TennisCourt setNumber(String number) {
+        this.number = number;
         return this;
     }
 

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <title>Tennisclub: De Tennisser</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/css.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</head>
+
+<body>
+    <nav>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+            <i class="fas fa-bars"></i>
+        </label>
+        <img src="images/logo1.png" class="logoTennis">
+        <label class="logo">De Tennisser</label>
+        <ul>
+            <li><a class="active" href="/index">Den Tennisser</a></li>
+            <li><a href="/lidmaatschap">Lidmaatschap</a></li>
+            <li><a href="/tennisles">TennisLessen</a></li>
+            <li><a href="/photo">Foto's</a></li>
+            <li><a href="/login">Login</a></li>
+        </ul>
+    </nav>
+
+    <img src="images/background.jpg" alt="Tennisveld" class="backgroundles">
+
+    <div class="bg-text">
+        <h1 style="font-size:50px">Registreer</h1>
+    </div>
+
+    <h2> Tennisclub: De tennisser</h2>
+    <h1>Registreer</h1>
+
+    <div class="register">
+        <form method="post" th:action = "@{/registeren}">
+            <div class="container">
+                <label><b>Naam</b></label>
+                <!--/*@thymesVar id="tennisPlayer" type="TennisClubDeTennisser"*/-->
+                <input type="text" name = "naam" th:text = "${tennisPlayer.name}">
+                <label><b>voornaam</b></label>
+                <input type="text" name = "voornaam" th:text = "${tennisPlayer.firstname}">
+                <label><b>geslacht</b></label>
+                <form action="">
+                    <input type="radio" name="Man" id="gender"  th:text = "${tennisPlayer.gender}">
+                    <br>
+                    <input type="radio" name="Vrouw" id="gender2" th:text = "${tennisPlayer.gender}">
+                    <br>
+                </form>
+                <label><b>verjaardag</b></label>
+                <input type="date" name = "verjaardag" th:text = "${tennisPlayer.birthday}">
+                <label><b>email</b></label>
+                <input type="text" name = "email" th:text = "${tennisPlayer.email}">
+                <label><b>Wachtwoord</b></label>
+                <input type="password" name = "password"  th:field = "${tennisPlayer.password}">
+                <label><b>telefoonnummer</b></label>
+                <input type="text" name = "telefoonnummer" th:text = "${tennisPlayer.phonenumber}">
+                <label><b>straat</b></label>
+                <input type="text" name = "straat" th:text = "${tennisPlayer.street}">
+                <label><b>huisnummer</b></label>
+                <input type="text" name = "huisnummer" th:text = "${tennisPlayer.streetNumber}">
+                <label><b>gemeente</b></label>
+                <input type="text" name = "gemeente" th:text = "${tennisPlayer.township}">
+                <label><b>postcode</b></label>
+                <input type="text" name = "postcode" th:text = "${tennisPlayer.postalCode}">
+
+                <input type="submit" class="registerbtn" value="registeren">
+            </div>
+        </form>
+    </div>
+
+
+    <br>
+    <div class="register">
+        <button class="registerbtn"  onclick="window.location.href='/index'">Terug naar de hoofdpagina </button>
+    </div>
+<br>
+    <footer>
+        <br>
+        <p class="footertext">TennisClub: Den Tennisser bedankt u voor uw bezoek aan onze website bij vragen kan u een mailtje sturen. <a href="mailto:detennisser@hotmail.com">detennisser@hotmail.com</a> </p>
+
+        <br>
+    </footer>
+
+</body>
+
+</html>

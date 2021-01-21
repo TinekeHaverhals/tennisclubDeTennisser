@@ -2,6 +2,7 @@ package TennisClubDeTennisser.Data;
 
 import TennisClubDeTennisser.Model.Reservation;
 import TennisClubDeTennisser.Model.TennisPlayer;
+import org.springframework.stereotype.Repository;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -11,6 +12,7 @@ import java.util.List;
  * Tineke Haverhals
  * 8/01/21.
  */
+@Repository
 public class ReservationDAO {
 
     public List<Reservation> getAllReservation() throws SQLException {

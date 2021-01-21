@@ -1,37 +1,34 @@
 package TennisClubDeTennisser.Data;
 
 import TennisClubDeTennisser.Model.TennisCourt;
+import TennisClubDeTennisser.Model.TennisPlayer;
+import org.springframework.stereotype.Repository;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
+import java.sql.*;
 
 /**
  * Tineke Haverhals
  * 8/01/21.
  */
+@Repository
 public class TennisCourtDAO {
 
-    public List<TennisCourt> getAllTennisCourt() throws SQLException {
+    public TennisCourt getAllTennisCourt() throws SQLException {
         Connection connection = ConnectionFactory.getConnection();
-        Statement statement = connection.createStatement();
-        ResultSet rs = statement.executeQuery("SELECT * FROM TennisCourt");
-        return parseTennisCourt(rs);
-    }
+        PreparedStatement statement = connection.prepareStatement("SELECT * FROM TennisCourt");
+        ResultSet rs = statement.executeQuery();
+        TennisCourt tennisCourt= null;
 
-    private List<TennisCourt> parseTennisCourt(ResultSet rs) throws SQLException {
-        List<TennisCourt> result = new ArrayList<>();
-        while (rs.next()) {
-            TennisCourt tennisCourt = new TennisCourt();
-            tennisCourt.setId(rs.getInt("Id"));
-            tennisCourt.setDescription(rs.getString("Description"));
+        if (rs!= null) {
+            while (rs.next()) {
+                tennisCourt = new TennisCourt();
 
-            result.add(tennisCourt);
+                tennisCourt.setId(rs.getInt("Id"));
+                tennisCourt.setNumber(rs.getString("Number"));
+                tennisCourt.setDescription(rs.getString("Description"));
+            }
         }
-        return result;
+        return tennisCourt;
     }
 }
 
