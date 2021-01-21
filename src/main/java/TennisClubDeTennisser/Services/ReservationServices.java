@@ -20,9 +20,10 @@ public class ReservationServices {
     private ReservationDAO reservationDAO = new ReservationDAO();
 
     //lijst alle reservaties
-    public List<Reservation> getAllReservation() throws SQLException {
-        return reservationDAO.getAllReservation();
-    }
+    //public List<Reservation> getAllReservation() throws SQLException {
+    //        return reservationDAO.get();
+    //    }
+
 
     //lijst alle reservaties per ID
     public List<Reservation> getReservationById(int tennisPlayerId) throws Exception {
