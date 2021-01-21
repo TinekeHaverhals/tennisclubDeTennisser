@@ -41,22 +41,6 @@ public class TennisPlayerController {
         return "pages/Login";
     }
 
-    // @GetMapping("login")
-    //    public String login (Model model){
-    //        model.addAttribute("tennisPlayer", new TennisPlayer("", ""));
-    //        return "pages/Login";
-    //    }
-    //    @PostMapping("login")
-    //    public String login2(@ModelAttribute("tennisPlayer")TennisPlayer tennisPlayerReceived, HttpSession session) throws SQLException {
-    //        TennisPlayer tennisPlayer = tennisPlayerServices.getUserByPassWordAndEmail(tennisPlayerReceived.getEmail(), tennisPlayerReceived.getPassword());
-    //        if (tennisPlayer != null){
-    //            System.out.println("user has logged in");
-    //            session.setAttribute("user", tennisPlayer);
-    //            return "redirect:ChoiceMenu";
-    //        }
-    //        else System.out.println("not logged in");
-    //        return "pages/Login";
-    //    }
 
     //registeren
     //@GetMapping("registeren")
@@ -93,6 +77,13 @@ public class TennisPlayerController {
         model.addAttribute("tennisPlayer", session.getAttribute("user"));
         return "login/ChoiceMenu";
     }
+
+    @GetMapping("registration")
+    public String registration (Model model)  throws SQLException {
+        model.addAttribute("tennisPlayer");
+        return "pages/Registration";
+    }
+
 
     @GetMapping("players")
     public String players (Model model, HttpSession session)  throws SQLException {

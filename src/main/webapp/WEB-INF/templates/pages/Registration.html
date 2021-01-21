@@ -40,32 +40,36 @@
             <div class="container">
                 <label><b>Naam</b></label>
                 <!--/*@thymesVar id="tennisPlayer" type="TennisClubDeTennisser"*/-->
-                <input type="text" name = "naam" th:text = "${tennisPlayer.name}">
-                <label><b>voornaam</b></label>
-                <input type="text" name = "voornaam" th:text = "${tennisPlayer.firstname}">
-                <label><b>geslacht</b></label>
+                <input type="text" name = "name">
+                <label><b>Voornaam</b></label>
+                <input type="text" name = "firstname">
+                <label><b>Geslacht</b></label>
+                <br>
                 <form action="">
-                    <input type="radio" name="Man" id="gender"  th:text = "${tennisPlayer.gender}">
+                    <input type="radio" name="gender" id="man">man
                     <br>
-                    <input type="radio" name="Vrouw" id="gender2" th:text = "${tennisPlayer.gender}">
+                    <input type="radio" name="gender" id="vrouw">vrouw
                     <br>
                 </form>
-                <label><b>verjaardag</b></label>
-                <input type="date" name = "verjaardag" th:text = "${tennisPlayer.birthday}">
-                <label><b>email</b></label>
-                <input type="text" name = "email" th:text = "${tennisPlayer.email}">
+                <br>
+                <label><b>Verjaardag</b></label>
+                <input type="date" name = "birthday">
+                <br>
+                <br>
+                <label><b>Email</b></label>
+                <input type="text" name = "email">
                 <label><b>Wachtwoord</b></label>
-                <input type="password" name = "password"  th:field = "${tennisPlayer.password}">
-                <label><b>telefoonnummer</b></label>
-                <input type="text" name = "telefoonnummer" th:text = "${tennisPlayer.phonenumber}">
-                <label><b>straat</b></label>
-                <input type="text" name = "straat" th:text = "${tennisPlayer.street}">
-                <label><b>huisnummer</b></label>
-                <input type="text" name = "huisnummer" th:text = "${tennisPlayer.streetNumber}">
-                <label><b>gemeente</b></label>
-                <input type="text" name = "gemeente" th:text = "${tennisPlayer.township}">
-                <label><b>postcode</b></label>
-                <input type="text" name = "postcode" th:text = "${tennisPlayer.postalCode}">
+                <input type="password" name = "password">
+                <label><b>Telefoonnummer</b></label>
+                <input type="text" name = "phoneNumber">
+                <label><b>Straat</b></label>
+                <input type="text" name = "street">
+                <label><b>Huisnummer</b></label>
+                <input type="text" name = "streetNumber">
+                <label><b>Gemeente</b></label>
+                <input type="text" name = "township">
+                <label><b>Postcode</b></label>
+                <input type="text" name = "postalCode">
 
                 <input type="submit" class="registerbtn" value="registeren">
             </div>
