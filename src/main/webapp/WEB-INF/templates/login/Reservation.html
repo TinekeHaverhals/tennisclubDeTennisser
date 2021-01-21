@@ -42,10 +42,11 @@
             <th>Nummer van het veld</th>
             <th>Beschrijving</th>
         </tr>
+        
         <!--/*@thymesVar id="tennisCourts" type="TennisClubDeTennisser"*/-->
-        <tr th:each = "allList: ${tennisCourts}">
-            <td th:text="${tennisCourt.number}">vasile</td>
-            <td th:text="${tennisCourt.description}">45</td>
+        <tr th:each = "allTennisCourt: ${tennisCourts}">
+            <td>[[${tennisCourt.number}]]</td>
+            <td>[[${tennisCourt.description}]]</td>
         </tr>
     </table>
 
