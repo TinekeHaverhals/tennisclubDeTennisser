@@ -35,19 +35,22 @@
         <br> Tennisclub De Tennisser wenst u heel veel tennisplezier!
     </p>
     <h3>
-        tennisvelden
+        tennisvelden nummer + beschrijving
     </h3>
     <table>
         <tr>
             <th>Nummer van het veld</th>
             <th>Beschrijving</th>
         </tr>
-
-        <tr>
-            <td> [[${tennisCourt.description}]]</td>
-            <td> [[${tennisPlayer.subscriptionDescription}]]</td>
+        <!--/*@thymesVar id="tennisCourts" type="TennisClubDeTennisser"*/-->
+        <tr th:each = "allList: ${tennisCourts}">
+            <td th:text="${tennisCourt.number}">vasile</td>
+            <td th:text="${tennisCourt.description}">45</td>
         </tr>
     </table>
+
+    <p> [[${tennisCourt.number}]]</p>
+
     <br>
     <img src="images/lijn-Tineke.svg">
     <h3>

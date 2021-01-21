@@ -1,13 +1,13 @@
 package TennisClubDeTennisser.Services;
 
+import TennisClubDeTennisser.Data.ConnectionFactory;
 import TennisClubDeTennisser.Data.TennisPlayerDAO;
+import TennisClubDeTennisser.Model.TennisCourt;
 import TennisClubDeTennisser.Model.TennisPlayer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.sql.Date;
-import java.sql.SQLException;
-import java.util.ArrayList;
+import java.sql.*;
 import java.util.List;
 
 /**
@@ -20,38 +20,44 @@ public class TennisPlayerServices {
     @Autowired
     private TennisPlayerDAO tennisPlayerDAO;
 
+    // login
     public  TennisPlayer getUserByPassWordAndEmail(String email, String password) throws SQLException {
         return tennisPlayerDAO.getUserByPassWordAndEmail(email, password);
     }
 
-    public static List<TennisPlayer> getAllTennisPlayer() throws SQLException {
-       List<TennisPlayer> list = new ArrayList<>();
-       TennisPlayerDAO.getAllTennisPlayer().forEach(e -> list.add(e));
-       return list;
+    // registreren
+    public TennisPlayer getAddTennisPlayer(String name, String firstname, String gender, Date birthday, int phoneNumber, String email, String password, String street, int streetNumber, String township, int postalCode) throws Exception {
+        return tennisPlayerDAO.getAddTennisPlayer(name, firstname, gender, birthday, phoneNumber, email, password, street, streetNumber, township, postalCode);
     }
 
-    public TennisPlayer getAddTennisPlayer(String Name, String FirstName, String Gender, Date Birthday, int PhoneNumber, String Email, String Password, String Street, int StreetNumber, String Township, int PostalCode) throws Exception {
-        return tennisPlayerDAO.getAddTennisPlayer(Name, FirstName, Gender, Birthday, PhoneNumber, Email, Password, Street, StreetNumber, Township, PostalCode);
-    }
-
-    public List<TennisPlayer> getDeleteTennisPlayer(int TennisPlayerId) throws Exception {
-        return tennisPlayerDAO.getDeleteTennisPlayer(TennisPlayerId);
-    }
-
-    public List<TennisPlayer> getChangeEmail (String NewEmail, String OldEmail) throws SQLException {
-        return tennisPlayerDAO.getChangeEmail(NewEmail, OldEmail);
-    }
-
-    public List<TennisPlayer> getChangePhoneNumber(int NewPhoneNumber, int OldPhoneNumber) throws SQLException {
-        return tennisPlayerDAO.getChangePhoneNumber(NewPhoneNumber, OldPhoneNumber);
-    }
-    public List<TennisPlayer> getChangeAddress(String Email, String Street, int StreetNumber,String Township, int PostalCode ) throws SQLException {
-        return tennisPlayerDAO.getChangeAddress( Email, Street, StreetNumber,Township, PostalCode);
-    }
-
-    public List<TennisPlayer> getChangePassword( String Password, String Email ) throws SQLException {
-        return tennisPlayerDAO.getChangePassword(Password, Email);
-    }
+    // Lijst alle spelers
+   public TennisPlayer getAllTennisPlayers(String name, String firstname, String gender, String email ) throws SQLException{
+        return (TennisPlayer) tennisPlayerDAO.getAllTennisPlayers(name, firstname, gender,email );
+   }
 
 
+    //verwijderen speler
+    public List<TennisPlayer> getDeleteTennisPlayer(int tennisPlayerId) throws Exception {
+        return tennisPlayerDAO.getDeleteTennisPlayer(tennisPlayerId);
+    }
+
+    //wijzigen email
+    public List<TennisPlayer> getChangeEmail (String newEmail, String oldEmail) throws SQLException {
+        return tennisPlayerDAO.getChangeEmail(newEmail, oldEmail);
+    }
+
+    //wijzigen tel
+    public List<TennisPlayer> getChangePhoneNumber(int newPhoneNumber, int oldPhoneNumber) throws SQLException {
+        return tennisPlayerDAO.getChangePhoneNumber(newPhoneNumber, oldPhoneNumber);
+    }
+
+    //wijzigen adres
+    public List<TennisPlayer> getChangeAddress(String email, String street, int streetNumber,String township, int postalCode ) throws SQLException {
+        return tennisPlayerDAO.getChangeAddress( email, street, streetNumber,township, postalCode);
+    }
+
+    //wijzigen wachtwoord
+    public List<TennisPlayer> getChangePassword( String password, String email ) throws SQLException {
+        return tennisPlayerDAO.getChangePassword(password, email);
+    }
 }

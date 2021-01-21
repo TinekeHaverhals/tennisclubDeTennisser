@@ -41,6 +41,13 @@ public class TennisPlayer {
         this.password = password;
     }
 
+    public TennisPlayer(String name, String firstname, String gender, String email){
+        this.name = name;
+        this.firstname = firstname;
+        this.gender = gender;
+        this.email = email;
+    }
+
     public TennisPlayer(String name, String firstname, String gender, Date birthday, int phoneNumber, String email, String password, String street, int streetNumber, String township,int postalCode){
         this.name = name;
         this.firstname = firstname;

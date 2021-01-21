@@ -1,5 +1,6 @@
 package TennisClubDeTennisser.Controllers;
 
+import TennisClubDeTennisser.Model.TennisCourt;
 import TennisClubDeTennisser.Model.TennisPlayer;
 import TennisClubDeTennisser.Services.TennisPlayerServices;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,7 @@ public class TennisPlayerController {
     private TennisPlayerServices tennisPlayerServices;
 
     // logincontrole
+
     @GetMapping("login")
     public String login (Model model){
         model.addAttribute("tennisPlayer", new TennisPlayer("", ""));
@@ -42,16 +44,24 @@ public class TennisPlayerController {
     }
 
     //registeren
-    //@GetMapping("registeren")
-    //public void registeren (Model model){
-    //    model.addAttribute("tennisPlayer", new TennisPlayer("","","","","","","","","","",""));
-    //}
-    //@PostMapping("registeren")
-    //public void registeren2(@ModelAttribute("tennisPlayeradd") TennisPlayer tennisPlayerReceived) throws Exception {
-    //    TennisPlayer tennisPlayer = (TennisPlayer) tennisPlayerServices.getAddTennisPlayer(tennisPlayerReceived.getName(), tennisPlayerReceived.getFirstname(), tennisPlayerReceived.getGender(), tennisPlayerReceived.getBirthday(), tennisPlayerReceived.getEmail(), tennisPlayerReceived.getPassword(), tennisPlayerReceived.getPhoneNumber(), tennisPlayerReceived.getStreet(), tennisPlayerReceived.getStreetNumber(), tennisPlayerReceived.getTownship(), tennisPlayerReceived.getPostalCode());
-    //}
 
-    // pagina's
+    @GetMapping("registeren")
+    public void registeren (Model model){
+        model.addAttribute("tennisPlayer", new TennisPlayer("","","","","","","","","","",""));
+    }
+
+    @PostMapping("registeren")
+    public void registeren2(@ModelAttribute("tennisPlayeradd") TennisPlayer tennisPlayerReceived) throws Exception {
+      TennisPlayer tennisPlayer = (TennisPlayer) tennisPlayerServices.getAddTennisPlayer(tennisPlayerReceived.getName(), tennisPlayerReceived.getFirstname(), tennisPlayerReceived.getGender(), tennisPlayerReceived.getBirthday(), tennisPlayerReceived.getEmail(), tennisPlayerReceived.getPassword(), tennisPlayerReceived.getPhoneNumber(), tennisPlayerReceived.getStreet(), tennisPlayerReceived.getStreetNumber(), tennisPlayerReceived.getTownship(), tennisPlayerReceived.getPostalCode());
+    }
+
+    // lijst alle tennisspelers
+    @GetMapping("allTennisPlayers")
+    public String alltennisPlayers (Model model){
+        model.addAttribute("tennisPlayer", new TennisPlayer("", "","",""));
+        return "pages/ListAllTennisPlayers";
+    }
+
     @GetMapping("ChoiceMenu")
     public String choiceMenu (Model model, HttpSession session)  throws SQLException {
         model.addAttribute("tennisPlayer", session.getAttribute("user"));
@@ -104,12 +114,6 @@ public class TennisPlayerController {
     public String tennisles (Model model, HttpSession session)  throws SQLException {
         model.addAttribute("tennisPlayer", session.getAttribute("user"));
         return "pages/Tennisles";
-    }
-
-    @GetMapping("register")
-    public String register (Model model, HttpSession session)  throws SQLException {
-        model.addAttribute("tennisPlayer", session.getAttribute("user"));
-        return "login/Register";
     }
 
     @GetMapping("data")

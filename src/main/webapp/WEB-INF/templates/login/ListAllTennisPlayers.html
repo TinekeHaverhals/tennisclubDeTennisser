@@ -31,16 +31,20 @@
 <h1>Lijst van alle tennisspelers</h1>
 <br>
 <div class="register">
-    <form method="post" th:action = "@{/login}">
-        <div class="container">
-            <label><b>Email</b></label>
-            <!--/*@thymesVar id="oldEmail" type="TennisClubDeTennisser"*/-->
-            <input type="text" name = "oude email" th:text = "${tennisPlayer.oldEmail}">
-            <label><b>Wachtwoord</b></label>
-            <input type="text" name = "nieuwe email"  th:text = "${tennisPlayer.newEmail}">
-            <input type="submit" class="registerbtn" value="mail">
-        </div>
-    </form>
+    <table>
+        <tr>
+            <th>Naam</th>
+            <th>Voornaam</th>
+            <th>Geslacht</th>
+            <th>Email</th>
+
+        </tr>
+        <!--/*@thymesVar id="tennisCourts" type="TennisClubDeTennisser"*/-->
+        <!-- <tr th:each = "allList: ${tennisCourts}">
+        <td th:text="${tennisCourt.number}">vasile</td>
+            <td th:text="${tennisCourt.description}">45</td>
+        </tr>-->
+    </table>
 </div>
 
 <div  class="dataInfo">

@@ -1,17 +1,18 @@
 package TennisClubDeTennisser.Controllers;
 
+import TennisClubDeTennisser.Data.TennisCourtDAO;
 import TennisClubDeTennisser.Model.TennisCourt;
 import TennisClubDeTennisser.Model.TennisPlayer;
 import TennisClubDeTennisser.Services.TennisCourtServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.sql.SQLException;
+import java.util.List;
+import java.util.Set;
 
 /**
  * Tineke Haverhals
@@ -21,21 +22,15 @@ import java.sql.SQLException;
 public class TennisCourtController {
 
     @Autowired
-    TennisCourtServices tennisCourtServices;
+    private TennisCourtServices tennisCourtServices;
 
-    // alle tennisvelden opvragen
-    @GetMapping("tennisCourt")
+    @GetMapping("allList")
     public String tennisCourt (Model model){
         model.addAttribute("tennisCourt", new TennisCourt("", ""));
-        return "login/Reservation";
+        return "pages/Reservation";
     }
 
-    @PostMapping("tennisCourt")
-    public String tennisCourt(@ModelAttribute("tennisCourt")TennisCourt tennisCourtReceived) throws SQLException {
-        TennisCourt tennisCourt = tennisCourtServices.getAllTennisCourt();
 
-        return "login/Reservation";
-    }
 
 
 }
