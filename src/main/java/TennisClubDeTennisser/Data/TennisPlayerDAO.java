@@ -91,10 +91,11 @@ public class TennisPlayerDAO {
         return tennisPlayer;
     }
 
+    // lijsta alle tennisspelers
     public static List<TennisPlayer> getAllTennisPlayers(String name, String firstname, String gender, String email) throws SQLException {
         Connection connection = ConnectionFactory.getConnection();
         Statement statement = connection.createStatement();
-        ResultSet rs = statement.executeQuery("SELECT * FROM TennisPlayer");
+        ResultSet rs = statement.executeQuery("SELECT Name, FirstName, Gender, Email FROM TennisPlayer");
         List<TennisPlayer> tennisPlayers = new ArrayList<>();
         TennisPlayer tennisPlayer = null;
         if (rs!= null){

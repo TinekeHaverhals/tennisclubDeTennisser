@@ -24,7 +24,7 @@ public class TennisCourtController {
     @Autowired
     private TennisCourtServices tennisCourtServices;
 
-    @GetMapping("allList")
+    @GetMapping("allTennisCourt")
     public String tennisCourt (Model model){
         model.addAttribute("tennisCourt", new TennisCourt("", ""));
         return "pages/Reservation";

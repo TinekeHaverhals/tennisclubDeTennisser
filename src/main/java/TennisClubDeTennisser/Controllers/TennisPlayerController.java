@@ -25,7 +25,6 @@ public class TennisPlayerController {
     private TennisPlayerServices tennisPlayerServices;
 
     // logincontrole
-
     @GetMapping("login")
     public String login (Model model){
         model.addAttribute("tennisPlayer", new TennisPlayer("", ""));
@@ -44,7 +43,6 @@ public class TennisPlayerController {
     }
 
     //registeren
-
     @GetMapping("registeren")
     public void registeren (Model model){
         model.addAttribute("tennisPlayer", new TennisPlayer("","","","","","","","","","",""));
