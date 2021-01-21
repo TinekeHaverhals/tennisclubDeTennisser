@@ -1,6 +1,5 @@
 package TennisClubDeTennisser.Controllers;
 
-import TennisClubDeTennisser.Model.TennisCourt;
 import TennisClubDeTennisser.Model.TennisPlayer;
 import TennisClubDeTennisser.Services.TennisPlayerServices;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,17 +59,17 @@ public class TennisPlayerController {
         return "pages/ListAllTennisPlayers";
     }
 
-    // wijzigen telefoonnummer
-    @GetMapping("/tel")
-    public String changeTel (Model model){
-        model.addAttribute("tennisPlayer", new TennisPlayer("","",""));
-        return "login/data";
-    }
-    @PostMapping("login")
-    public String changeTel2(@ModelAttribute("tennisPlayer")TennisPlayer tennisPlayerReceived, HttpSession session) throws SQLException {
-        TennisPlayer tennisPlayer = (TennisPlayer) tennisPlayerServices.getChangePhoneNumber(tennisPlayerReceived.getPhoneNumber(),tennisPlayerReceived.getEmail(), tennisPlayerReceived.getPassword());
-        return "login/Data";
-    }
+    //// wijzigen telefoonnummer
+    //    @GetMapping("/tel")
+    //    public String changeTel (Model model){
+    //        model.addAttribute("tennisPlayer", new TennisPlayer("","",""));
+    //        return "login/data";
+    //    }
+    //    @PostMapping("login")
+    //    public String changeTel2(@ModelAttribute("tennisPlayer")TennisPlayer tennisPlayerReceived, HttpSession session) throws SQLException {
+    //        TennisPlayer tennisPlayer = (TennisPlayer) tennisPlayerServices.getChangePhoneNumber(tennisPlayerReceived.getPhoneNumber(),tennisPlayerReceived.getEmail(), tennisPlayerReceived.getPassword());
+    //        return "login/Data";
+    //    }
 
     @GetMapping("ChoiceMenu")
     public String choiceMenu (Model model, HttpSession session)  throws SQLException {
