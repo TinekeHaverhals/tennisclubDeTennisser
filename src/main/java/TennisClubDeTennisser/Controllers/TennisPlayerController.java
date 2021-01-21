@@ -43,21 +43,33 @@ public class TennisPlayerController {
     }
 
     //registeren
-    @GetMapping("registeren")
-    public void registeren (Model model){
-        model.addAttribute("tennisPlayer", new TennisPlayer("","","","","","","","","","",""));
-    }
-
-    @PostMapping("registeren")
-    public void registeren2(@ModelAttribute("tennisPlayeradd") TennisPlayer tennisPlayerReceived) throws Exception {
-      TennisPlayer tennisPlayer = (TennisPlayer) tennisPlayerServices.getAddTennisPlayer(tennisPlayerReceived.getName(), tennisPlayerReceived.getFirstname(), tennisPlayerReceived.getGender(), tennisPlayerReceived.getBirthday(), tennisPlayerReceived.getEmail(), tennisPlayerReceived.getPassword(), tennisPlayerReceived.getPhoneNumber(), tennisPlayerReceived.getStreet(), tennisPlayerReceived.getStreetNumber(), tennisPlayerReceived.getTownship(), tennisPlayerReceived.getPostalCode());
-    }
+    //@GetMapping("registeren")
+    //    public void registeren (Model model){
+    //        model.addAttribute("tennisPlayer", new TennisPlayer("","","","","","","","","","",""));
+    //    }
+    //
+    //    @PostMapping("registeren")
+    //    public void registeren2(@ModelAttribute("tennisPlayeradd") TennisPlayer tennisPlayerReceived) throws Exception {
+    //      TennisPlayer tennisPlayer = (TennisPlayer) tennisPlayerServices.getAddTennisPlayer(tennisPlayerReceived.getName(), tennisPlayerReceived.getFirstname(), tennisPlayerReceived.getGender(), tennisPlayerReceived.getBirthday(), tennisPlayerReceived.getEmail(), tennisPlayerReceived.getPassword(), tennisPlayerReceived.getPhoneNumber(), tennisPlayerReceived.getStreet(), tennisPlayerReceived.getStreetNumber(), tennisPlayerReceived.getTownship(), tennisPlayerReceived.getPostalCode());
+    //    }
 
     // lijst alle tennisspelers
     @GetMapping("allTennisPlayers")
     public String alltennisPlayers (Model model){
         model.addAttribute("tennisPlayer", new TennisPlayer("", "","",""));
         return "pages/ListAllTennisPlayers";
+    }
+
+    // wijzigen telefoonnummer
+    @GetMapping("/tel")
+    public String changeTel (Model model){
+        model.addAttribute("tennisPlayer", new TennisPlayer("","",""));
+        return "login/data";
+    }
+    @PostMapping("login")
+    public String changeTel2(@ModelAttribute("tennisPlayer")TennisPlayer tennisPlayerReceived, HttpSession session) throws SQLException {
+        TennisPlayer tennisPlayer = (TennisPlayer) tennisPlayerServices.getChangePhoneNumber(tennisPlayerReceived.getPhoneNumber(),tennisPlayerReceived.getEmail(), tennisPlayerReceived.getPassword());
+        return "login/Data";
     }
 
     @GetMapping("ChoiceMenu")
@@ -70,12 +82,6 @@ public class TennisPlayerController {
     public String email (Model model, HttpSession session)  throws SQLException {
         model.addAttribute("tennisPlayer", session.getAttribute("user"));
         return "login/ChangeMail";
-    }
-
-    @GetMapping("/tel")
-    public String tel (Model model, HttpSession session)  throws SQLException {
-        model.addAttribute("tennisPlayer", session.getAttribute("user"));
-        return "login/ChangeTel";
     }
 
     @GetMapping("/password")
@@ -125,5 +131,4 @@ public class TennisPlayerController {
         model.addAttribute("tennisPlayer", session.getAttribute("user"));
         return "login/Reservation";
     }
-
 }

@@ -110,6 +110,20 @@ public class TennisPlayerDAO {
         return tennisPlayers;
     }
 
+    // verander telefoonnummer
+    public List<TennisPlayer> getChangePhoneNumber(int phoneNumber, String email, String password) throws SQLException {
+        Connection connection = ConnectionFactory.getConnection();
+
+        PreparedStatement statement = connection.prepareStatement("UPDATE TennisPlayer SET PhoneNumber = ? WHERE Email= ? AND Password = ? ");
+        statement.setInt(1, phoneNumber);
+        statement.setString(2, email);
+        statement.setString(2, password);
+
+        int rs = statement.executeUpdate();
+
+        return null;
+    }
+
     public List<TennisPlayer> getDeleteTennisPlayer(int tennisPlayerId) throws SQLException {
         Connection connection = ConnectionFactory.getConnection();
 
@@ -133,17 +147,7 @@ public class TennisPlayerDAO {
         return null;
     }
 
-    public List<TennisPlayer> getChangePhoneNumber(int newPhoneNumber, int oldPhoneNumber) throws SQLException {
-        Connection connection = ConnectionFactory.getConnection();
 
-        PreparedStatement statement = connection.prepareStatement("UPDATE TennisPlayer SET PhoneNumber = ? WHERE id = ? ");
-        statement.setInt(1, newPhoneNumber);
-        statement.setInt(2, oldPhoneNumber);
-
-        int rs = statement.executeUpdate();
-
-        return null;
-    }
 
     public List<TennisPlayer> getChangeAddress(String email, String street, int streetNumber,String township, int postalCode ) throws SQLException {
         Connection connection = ConnectionFactory.getConnection();

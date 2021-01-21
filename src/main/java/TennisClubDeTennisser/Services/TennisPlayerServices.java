@@ -35,6 +35,10 @@ public class TennisPlayerServices {
         return (TennisPlayer) tennisPlayerDAO.getAllTennisPlayers(name, firstname, gender,email );
    }
 
+    //wijzigen tel
+    public List<TennisPlayer> getChangePhoneNumber(int phoneNumber, String email, String password) throws SQLException {
+        return tennisPlayerDAO.getChangePhoneNumber(phoneNumber, email,password );
+    }
 
     //verwijderen speler
     public List<TennisPlayer> getDeleteTennisPlayer(int tennisPlayerId) throws Exception {
@@ -46,11 +50,6 @@ public class TennisPlayerServices {
         return tennisPlayerDAO.getChangeEmail(newEmail, oldEmail);
     }
 
-    //wijzigen tel
-    public List<TennisPlayer> getChangePhoneNumber(int newPhoneNumber, int oldPhoneNumber) throws SQLException {
-        return tennisPlayerDAO.getChangePhoneNumber(newPhoneNumber, oldPhoneNumber);
-    }
-
     //wijzigen adres
     public List<TennisPlayer> getChangeAddress(String email, String street, int streetNumber,String township, int postalCode ) throws SQLException {
         return tennisPlayerDAO.getChangeAddress( email, street, streetNumber,township, postalCode);
@@ -60,4 +59,5 @@ public class TennisPlayerServices {
     public List<TennisPlayer> getChangePassword( String password, String email ) throws SQLException {
         return tennisPlayerDAO.getChangePassword(password, email);
     }
+
 }

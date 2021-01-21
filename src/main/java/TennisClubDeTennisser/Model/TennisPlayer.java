@@ -41,6 +41,12 @@ public class TennisPlayer {
         this.password = password;
     }
 
+    public TennisPlayer(int phoneNumber,String email, String password){
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.password = password;
+    }
+
     public TennisPlayer(String name, String firstname, String gender, String email){
         this.name = name;
         this.firstname = firstname;
@@ -61,7 +67,6 @@ public class TennisPlayer {
         this.township = township;
         this.postalCode = postalCode;
     }
-
 
     public int getId() {
         return id;

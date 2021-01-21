@@ -31,14 +31,16 @@
 <h1>Wijzigen van de telefoonnummer</h1>
 
 <div class="register">
-
-    <form method="post" th:action = "@{/login}">
+    <form method="post" th:action = "@{/changeTel}">
         <div class="container">
-            <label><b>oude telefoonnummer</b></label>
-           <!-- <input type="text" name = "email" th:text = "${TennisPlayer.email}">-->
-            <label><b>Nieuwe telefoonnummer</b></label>
-            <!--<input type="password" name ="password"  th:field = "${TennisPlayer.password}">-->
-            <button type="submit" class="registerbtn" value="login">Aanpassen</button>
+            <label><b>nieuwe telefoonnummer</b></label>
+            <!--/*@thymesVar id="tennisPlayer" type="TennisClubDeTennisser"*/-->
+            <input type="text" name = "phonenumber" th:text = "${tennisPlayer.phonenumber}">
+            <label><b>uw email</b></label>
+            <input type="text" name = "email" th:text = "${tennisPlayer.email}">
+            <label><b>Wachtwoord</b></label>
+            <input type="password" name = "password"  th:field = "${tennisPlayer.password}">
+            <input type="submit" class="registerbtn" value="login">
         </div>
     </form>
 </div>
