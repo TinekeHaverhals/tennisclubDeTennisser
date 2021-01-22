@@ -35,24 +35,20 @@ public class TennisPlayerServices {
     public  List<TennisPlayer> getAllTennisPlayer() throws SQLException{
         return TennisPlayerDAO.getAllTennisPlayer();
     }
-    //wijzigen tel
-    public List<TennisPlayer> getChangePhoneNumber(int phoneNumber, String email, String password) throws SQLException {
-        return tennisPlayerDAO.getChangePhoneNumber(phoneNumber, email,password );
-    }
 
-    //verwijderen speler
-    public List<TennisPlayer> getDeleteTennisPlayer(int tennisPlayerId) throws Exception {
-        return tennisPlayerDAO.getDeleteTennisPlayer(tennisPlayerId);
+    //wijzigen telefoonnummer
+    public TennisPlayer getChangePhoneNumber(int phoneNumber, String email) throws SQLException {
+        return tennisPlayerDAO.getChangePhoneNumber(phoneNumber, email);
     }
 
     //wijzigen email
-    public List<TennisPlayer> getChangeEmail (String newEmail, String oldEmail) throws SQLException {
-        return tennisPlayerDAO.getChangeEmail(newEmail, oldEmail);
+    public TennisPlayer getChangeEmail (String email, String password) throws SQLException {
+        return tennisPlayerDAO.getChangeEmail(email, password);
     }
 
     //wijzigen adres
-    public List<TennisPlayer> getChangeAddress(String email, String street, int streetNumber,String township, int postalCode ) throws SQLException {
-        return tennisPlayerDAO.getChangeAddress( email, street, streetNumber,township, postalCode);
+    public TennisPlayer getChangeAddress(String street, int streetNumber,String township, int postalCode, String email ) throws SQLException {
+        return tennisPlayerDAO.getChangeAddress(street, streetNumber,township, postalCode, email);
     }
 
     //wijzigen wachtwoord

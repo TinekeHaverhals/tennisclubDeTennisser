@@ -43,12 +43,12 @@
             <th>GSM Nummer</th>
 
         </tr>`
-        <tr th:each = "allTennisPlayers: ${tennisPlayers}">
+        <tr th:each = "tennisPlayer: ${tennisPlayers}">
             <td>[[${tennisPlayer.name}]]</td>
             <td>[[${tennisPlayer.firstname}]]</td>
             <td>[[${tennisPlayer.gender}]]</td>
             <td>[[${tennisPlayer.email}]]</td>
-            <td>[[${tennisPlayer.phoneNumber}]]</td>
+            <td>+32[[${tennisPlayer.phoneNumber}]]</td>
         </tr>
 
     </table>
@@ -56,7 +56,7 @@
 <br>
 <br>
 <div  class="dataInfo">
-    <button class="buttonData "  onclick="window.location.href='/ChoiceMenu'">Terug naar het beginscherm </button>
+    <button class="buttonData "  onclick="window.location.href='/data'">Terug naar het beginscherm </button>
 </div>
 <br>
 <br>

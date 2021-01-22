@@ -37,19 +37,19 @@
     <h3>
         tennisvelden nummer + beschrijving
     </h3>
+    <div class="register">
     <table>
         <tr>
             <th>Nummer van het veld</th>
             <th>Beschrijving</th>
         </tr>
-        
-        <!--/*@thymesVar id="tennisCourts" type="TennisClubDeTennisser"*/-->
-        <!--/*@thymesVar id="tennisCourt" type="TennisClubDeTennisser"*/-->
-        <tr th:each = "allTennisCourt: ${tennisCourts}">
+
+        <tr th:each = "tennisCourt: ${tennisCourts}">
             <td>[[${tennisCourt.number}]]</td>
             <td>[[${tennisCourt.description}]]</td>
         </tr>
     </table>
+    </div>
 
     <br>
     <img src="images/lijn-Tineke.svg">
@@ -81,10 +81,39 @@
        Mijn huidige reservaties bekijken
     </h3>
 
+    <div class="register">
+    <table>
+        <tr>
+            <th>Reservatie nummer</th>
+            <th>Nummer van het veld</th>
+            <th>Datum</th>
+            <th>Uur</th>
+        </tr>
+
+        <tr th:each = "reservation: ${reservations}">
+            <td>[[${reservation.id}]]</td>
+            <td>[[${reservation.tennisCourtId}]]</td>
+            <td>[[${reservation.date}]]</td>
+            <td>[[${reservation.hour}]]</td>
+        </tr>
+    </table>
+    </div>
+<br>
+
     <img src="images/lijn-Tineke.svg">
     <h3>
       Mijn reservatie verwijderen
     </h3>
+    <div class="register">
+        <form  th:action= "@{deletereservation}">
+            <div class="container">
+                <label><b>Geef het reservatie nummer in van de reservatie die je wilt verwijderen</b></label>
+                <input type="text" name = "id">
+                <input type="submit" class="registerbtn" value="Verwijder">
+            </div>
+        </form>
+    </div>
+    <br>
 
     <img src="images/lijn-Tineke.svg">
 

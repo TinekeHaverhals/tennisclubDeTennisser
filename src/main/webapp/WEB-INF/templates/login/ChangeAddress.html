@@ -32,21 +32,19 @@
 <h1>Wijzigen van het adres</h1>
 
 <div class="register">
-
-    <form method="post" th:action = "@{/login}">
+    <form  th:action= "@{changeAddress}">
         <div class="container">
-            <label><b>Geef uw emailadres in</b></label>
-            <!--<input type="text" name = "email" th:text = "${TennisPlayer.email}">-->
+            <label><b>email</b></label>
+            <input type="text" name = "email">
             <label><b>Straat</b></label>
-            <!--<input type="text" name = "email" th:text = "${TennisPlayer.email}">-->
+            <input type="text" name = "street">
             <label><b>Huisnummer</b></label>
-            <!-- <input type="password" name ="password"  th:field = "${TennisPlayer.password}">-->
+            <input type="text" name = "streetNumber">
             <label><b>Gemeente</b></label>
-            <!--<input type="password" name ="password"  th:field = "${TennisPlayer.password}">-->
+            <input type="text" name = "township">
             <label><b>Postcode</b></label>
-            <!--<input type="password" name ="password"  th:field = "${TennisPlayer.password}">-->
-
-            <button type="submit" class="registerbtn" value="login">Aanpassen</button>
+            <input type="text" name = "postalCode">
+            <input type="submit" class="registerbtn" value="aanpassen">
         </div>
     </form>
 </div>

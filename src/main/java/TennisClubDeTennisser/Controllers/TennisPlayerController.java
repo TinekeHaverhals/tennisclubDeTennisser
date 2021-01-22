@@ -1,6 +1,9 @@
 package TennisClubDeTennisser.Controllers;
 
+import TennisClubDeTennisser.Model.Reservation;
 import TennisClubDeTennisser.Model.TennisPlayer;
+import TennisClubDeTennisser.Services.ReservationServices;
+import TennisClubDeTennisser.Services.TennisCourtServices;
 import TennisClubDeTennisser.Services.TennisPlayerServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,6 +25,10 @@ public class TennisPlayerController {
 
     @Autowired
     private TennisPlayerServices tennisPlayerServices;
+    @Autowired
+    private TennisCourtServices tennisCourtServices;
+    @Autowired
+    private ReservationServices reservationServices;
 
     // logincontrole
     @GetMapping("login")
@@ -41,72 +48,107 @@ public class TennisPlayerController {
         return "pages/Login";
     }
 
-
-    //registeren
-    //@GetMapping("registeren")
-    //    public void registeren (Model model){
-    //        model.addAttribute("tennisPlayer", new TennisPlayer("","","","","","","","","","",""));
-    //    }
-    //
-    //    @PostMapping("registeren")
-    //    public void registeren2(@ModelAttribute("tennisPlayeradd") TennisPlayer tennisPlayerReceived) throws Exception {
-    //      TennisPlayer tennisPlayer = (TennisPlayer) tennisPlayerServices.getAddTennisPlayer(tennisPlayerReceived.getName(), tennisPlayerReceived.getFirstname(), tennisPlayerReceived.getGender(), tennisPlayerReceived.getBirthday(), tennisPlayerReceived.getEmail(), tennisPlayerReceived.getPassword(), tennisPlayerReceived.getPhoneNumber(), tennisPlayerReceived.getStreet(), tennisPlayerReceived.getStreetNumber(), tennisPlayerReceived.getTownship(), tennisPlayerReceived.getPostalCode());
-    //    }
-
-    // lijst alle tennisspelers
-    @GetMapping("allTennisPlayers")
-    public String tennisPlayer (Model model) throws SQLException {
-        model.addAttribute("tennisPlayer", tennisPlayerServices.getAllTennisPlayer());
-        return "pages/ListAllTennisPlayers";
-    }
-
-    //// wijzigen telefoonnummer
-    //    @GetMapping("/tel")
-    //    public String changeTel (Model model){
-    //        model.addAttribute("tennisPlayer", new TennisPlayer("","",""));
-    //        return "login/data";
-    //    }
-    //    @PostMapping("login")
-    //    public String changeTel2(@ModelAttribute("tennisPlayer")TennisPlayer tennisPlayerReceived, HttpSession session) throws SQLException {
-    //        TennisPlayer tennisPlayer = (TennisPlayer) tennisPlayerServices.getChangePhoneNumber(tennisPlayerReceived.getPhoneNumber(),tennisPlayerReceived.getEmail(), tennisPlayerReceived.getPassword());
-    //        return "login/Data";
-    //    }
-
-    @GetMapping("ChoiceMenu")
-    public String choiceMenu (Model model, HttpSession session)  throws SQLException {
+    //registreren
+    @GetMapping("/registration")
+    public String registration (Model model, HttpSession session)  throws SQLException {
         model.addAttribute("tennisPlayer", session.getAttribute("user"));
-        return "login/ChoiceMenu";
-    }
-
-    @GetMapping("registration")
-    public String registration (Model model)  throws SQLException {
-        model.addAttribute("tennisPlayer");
         return "pages/Registration";
     }
 
+    @GetMapping("tennisPlayerAdd")
+    public String tennisPlayerAdd (Model model, TennisPlayer tennisPlayer) throws Exception {
+        model.addAttribute("tennisPlayerAdd", tennisPlayerServices.getAddTennisPlayer(tennisPlayer.getName(),tennisPlayer.getFirstname(), tennisPlayer.getGender(), tennisPlayer.getBirthday(), tennisPlayer.getPhoneNumber(), tennisPlayer.getEmail(), tennisPlayer.getPassword(), tennisPlayer.getStreet(), tennisPlayer.getStreetNumber(), tennisPlayer.getTownship(), tennisPlayer.getPostalCode()));
+        return "pages/Login";
+    }
 
-    @GetMapping("players")
+    //lijst alle Tennisvelden + pagina reservatie + alle reservatie + verwijderen reservatie
+    @GetMapping("reservation")
+    public String reservation (Model model, HttpSession session, Reservation reservation) throws Exception {
+        model.addAttribute("tennisPlayer", session.getAttribute("user"));
+        model.addAttribute("tennisCourts", tennisCourtServices.getAllTennisCourt());
+        model.addAttribute("reservations", reservationServices.getAllReservation());
+        model.addAttribute("deletereservation", reservationServices.getDeleteReservation(reservation.getId()));
+        return "login/Reservation";
+    }
+
+    @GetMapping("deletereservation")
+    public String deletereservation (Model model, HttpSession session, Reservation reservation) throws Exception {
+        model.addAttribute("tennisPlayer", session.getAttribute("user"));
+        model.addAttribute("tennisCourts", tennisCourtServices.getAllTennisCourt());
+        model.addAttribute("reservations", reservationServices.getAllReservation());
+        model.addAttribute("deletereservation", reservationServices.getDeleteReservation(reservation.getId()));
+        return "login/ChoiceMenu";
+    }
+
+    // lijst alle tennisspelers
+    @GetMapping("allTennisPlayer")
     public String players (Model model, HttpSession session)  throws SQLException {
         model.addAttribute("tennisPlayer", session.getAttribute("user"));
+        model.addAttribute("tennisPlayers", tennisPlayerServices.getAllTennisPlayer());
         return "login/ListAllTennisPlayers";
     }
 
+    //wijzigen telefoonnummer
+    @GetMapping("/phoneNumber")
+    public String phoneNumber (Model model, HttpSession session)  throws SQLException {
+        model.addAttribute("tennisPlayer", session.getAttribute("user"));
+        return "login/ChangeTel";
+    }
+
+    @GetMapping("changePhoneNumber")
+    public String changePhoneNumber (Model model, HttpSession session, TennisPlayer tennisPlayer)  throws SQLException {
+        model.addAttribute("tennisPlayer", session.getAttribute("user"));
+        model.addAttribute("changePhoneNumber", tennisPlayerServices.getChangePhoneNumber(tennisPlayer.getPhoneNumber(), tennisPlayer.getEmail()));
+        return "pages/Login";
+    }
+
+    //wijzigen email
     @GetMapping("/email")
     public String email (Model model, HttpSession session)  throws SQLException {
         model.addAttribute("tennisPlayer", session.getAttribute("user"));
         return "login/ChangeMail";
     }
 
-    @GetMapping("/password")
-    public String password (Model model, HttpSession session)  throws SQLException {
+    @GetMapping("changeMail")
+    public String changeMail (Model model, HttpSession session, TennisPlayer tennisPlayer)  throws SQLException {
         model.addAttribute("tennisPlayer", session.getAttribute("user"));
-        return "login/ChangePassword";
+        model.addAttribute("changeMail", tennisPlayerServices.getChangeEmail(tennisPlayer.getEmail(), tennisPlayer.getPassword()));
+        return "pages/Login";
     }
 
+    //wijzigen adres
     @GetMapping("/address")
     public String address (Model model, HttpSession session)  throws SQLException {
         model.addAttribute("tennisPlayer", session.getAttribute("user"));
         return "login/ChangeAddress";
+    }
+
+    @GetMapping("changeAddress")
+    public String changeAddress (Model model, HttpSession session, TennisPlayer tennisPlayer)  throws SQLException {
+        model.addAttribute("tennisPlayer", session.getAttribute("user"));
+        model.addAttribute("changeMail", tennisPlayerServices.getChangeAddress(tennisPlayer.getStreet(), tennisPlayer.getStreetNumber(),  tennisPlayer.getTownship(),tennisPlayer.getPostalCode(), tennisPlayer.getEmail()));
+        return "pages/Login";
+    }
+
+    //wijzigen wachtwoord
+    @GetMapping("/password")
+    public String password (Model model, HttpSession session)  throws SQLException {
+        model.addAttribute("tennisPlayer", session.getAttribute("user"));
+        return "pages/ChangePassword";
+    }
+
+    @GetMapping("Changepassword")
+    public String Changepassword (Model model, HttpSession session, TennisPlayer tennisPlayer)  throws SQLException {
+        model.addAttribute("tennisPlayer", session.getAttribute("user"));
+        model.addAttribute("changeMail", tennisPlayerServices.getChangePassword(tennisPlayer.getPassword(), tennisPlayer.getEmail()));
+        return "pages/Login";
+    }
+
+    //pagina's
+    @GetMapping("ChoiceMenu")
+    public String choiceMenu (Model model, HttpSession session)  throws SQLException {
+        model.addAttribute("tennisPlayer", session.getAttribute("user"));
+        return "login/ChoiceMenu";
     }
 
     @GetMapping("index")
@@ -137,11 +179,5 @@ public class TennisPlayerController {
     public String data (Model model, HttpSession session)  throws SQLException {
         model.addAttribute("tennisPlayer", session.getAttribute("user"));
         return "login/Data";
-    }
-
-    @GetMapping("reservation")
-    public String reservation (Model model, HttpSession session)  throws SQLException {
-        model.addAttribute("tennisPlayer", session.getAttribute("user"));
-        return "login/Reservation";
     }
 }

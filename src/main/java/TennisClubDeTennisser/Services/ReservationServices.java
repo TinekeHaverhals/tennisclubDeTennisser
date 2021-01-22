@@ -1,7 +1,9 @@
 package TennisClubDeTennisser.Services;
 
 import TennisClubDeTennisser.Data.ReservationDAO;
+import TennisClubDeTennisser.Data.TennisCourtDAO;
 import TennisClubDeTennisser.Model.Reservation;
+import TennisClubDeTennisser.Model.TennisCourt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,15 +21,9 @@ public class ReservationServices {
     @Autowired
     private ReservationDAO reservationDAO = new ReservationDAO();
 
-    //lijst alle reservaties
-    //public List<Reservation> getAllReservation() throws SQLException {
-    //        return reservationDAO.get();
-    //    }
-
-
-    //lijst alle reservaties per ID
-    public List<Reservation> getReservationById(int tennisPlayerId) throws Exception {
-        return reservationDAO.getReservationById(tennisPlayerId);
+    //opvragen
+    public List<Reservation> getAllReservation() throws SQLException {
+        return reservationDAO.getAllReservation();
     }
 
     //toevoegen
@@ -36,8 +32,8 @@ public class ReservationServices {
     }
 
     // verwijderen
-    public List<Reservation> getDeleteReservation(int reservationId) throws Exception {
-        return reservationDAO.getDeleteReservation(reservationId);
+    public Reservation getDeleteReservation(int id) throws Exception {
+        return reservationDAO.getDeleteReservation(id);
     }
 }
 

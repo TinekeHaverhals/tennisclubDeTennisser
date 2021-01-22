@@ -32,14 +32,13 @@
 <h1>Wijzigen van het mailadres</h1>
 
 <div class="register">
-    <form method="post" th:action = "@{/login}">
+    <form  th:action= "@{changeMail}">
         <div class="container">
-            <label><b>Oud emailadres</b></label>
-            <!--/*@thymesVar id="oldEmail" type="TennisClubDeTennisser"*/-->
-            <input type="text" name = "oude email" th:text = "${tennisPlayer.oldEmail}">
             <label><b>nieuw emailadres</b></label>
-            <input type="text" name = "nieuwe email"  th:text = "${tennisPlayer.newEmail}">
-            <input type="submit" class="registerbtn" value="Aanpassen">
+            <input type="text" name = "email">
+            <label><b>Wachtwoord</b></label>
+            <input type="password" name = "password">
+            <input type="submit" class="registerbtn" value="aanpassen">
         </div>
     </form>
 </div>

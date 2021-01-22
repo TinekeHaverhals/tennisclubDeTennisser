@@ -27,8 +27,6 @@ public class TennisPlayer {
     private int postalCode;
     private int single;
     private int doubles;
-    private String oldEmail;
-    private String newEmail;
     private String subscriptionDescription;
     private String timeSubscription;
     private String paid;
@@ -41,20 +39,7 @@ public class TennisPlayer {
         this.password = password;
     }
 
-    public TennisPlayer(int phoneNumber,String email, String password){
-        this.phoneNumber = phoneNumber;
-        this.email = email;
-        this.password = password;
-    }
-
-    public TennisPlayer(String name, String firstname, String gender, String email){
-        this.name = name;
-        this.firstname = firstname;
-        this.gender = gender;
-        this.email = email;
-    }
-
-    public TennisPlayer(String name, String firstname, String gender, Date birthday, int phoneNumber, String email, String password, String street, int streetNumber, String township,int postalCode){
+    public TennisPlayer(String name, String firstname, String gender, Date birthday, int phoneNumber, String email, String password, String street, int streetNumber, String township, int postalCode){
         this.name = name;
         this.firstname = firstname;
         this.gender = gender;
@@ -65,8 +50,9 @@ public class TennisPlayer {
         this.street = street;
         this.streetNumber = streetNumber;
         this.township = township;
-        this.postalCode = postalCode;
+        this.postalCode= postalCode;
     }
+
 
     public int getId() {
         return id;
@@ -189,24 +175,6 @@ public class TennisPlayer {
 
     public TennisPlayer setDoubles(int doubles) {
         this.doubles = doubles;
-        return this;
-    }
-
-    public String getOldEmail() {
-        return oldEmail;
-    }
-
-    public TennisPlayer setOldEmail(String oldEmail) {
-        this.oldEmail = oldEmail;
-        return this;
-    }
-
-    public String getNewEmail() {
-        return newEmail;
-    }
-
-    public TennisPlayer setNewEmail(String newEmail) {
-        this.newEmail = newEmail;
         return this;
     }
 

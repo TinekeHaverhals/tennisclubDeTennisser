@@ -36,30 +36,29 @@
     <h1>Registreer</h1>
 
     <div class="register">
-        <form method="post" th:action = "@{/registeren}">
+        <form th:action= "@{tennisPlayerAdd}">
             <div class="container">
                 <label><b>Naam</b></label>
-                <!--/*@thymesVar id="tennisPlayer" type="TennisClubDeTennisser"*/-->
-                <input type="text" name = "name">
+                <input type="text"  name="name">
                 <label><b>Voornaam</b></label>
                 <input type="text" name = "firstname">
                 <label><b>Geslacht</b></label>
                 <br>
                 <form action="">
-                    <input type="radio" name="gender" id="man">man
+                    <input type="radio" name="gender" id="man" >man
                     <br>
                     <input type="radio" name="gender" id="vrouw">vrouw
                     <br>
                 </form>
                 <br>
                 <label><b>Verjaardag</b></label>
-                <input type="date" name = "birthday">
+                <input type="date" name = "birthday" >
                 <br>
                 <br>
                 <label><b>Email</b></label>
-                <input type="text" name = "email">
+                <input type="text" name = "email" >
                 <label><b>Wachtwoord</b></label>
-                <input type="password" name = "password">
+                <input type="password" name = "password" >
                 <label><b>Telefoonnummer</b></label>
                 <input type="text" name = "phoneNumber">
                 <label><b>Straat</b></label>
