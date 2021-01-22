@@ -36,17 +36,18 @@ public class ReservationDAO {
         return reservations;
     }
 
-    public List<Reservation> getAddReservation(int tennisPlayerId, int tennisCourtId, Date date, String hour) throws SQLException {
+    public Reservation getAddReservation( int tennisPlayerId,int tennisCourtId, Date date, String hour) throws SQLException {
         Connection connection = ConnectionFactory.getConnection();
 
-        PreparedStatement statement = connection.prepareStatement("INSERT INTO Reservation VALUES (Null, ? , ?, ?, ? )");
+        PreparedStatement statement = connection.prepareStatement("INSERT INTO Reservation (Id, TennisPlayerId,TennisCourtId, Date, Hour)VALUES (Null ,?, ?, ?, ? );");
         statement.setInt(1, tennisPlayerId);
         statement.setInt(2, tennisCourtId);
         statement.setDate(3, date);
         statement.setString(4,hour);
 
         int rs = statement.executeUpdate();
-        return null;
+        Reservation reservation = null;
+        return reservation;
     }
 
     public Reservation getDeleteReservation(int id) throws SQLException {

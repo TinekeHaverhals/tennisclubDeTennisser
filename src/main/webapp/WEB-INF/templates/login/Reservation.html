@@ -56,24 +56,10 @@
     <h3>
         Tennisveld reserveren
     </h3>
-
-    <div class="register">
-        <form method="post" th:action = "@{/reservation}">
-            <div class="container">
-                <label><b>VeldNummer</b></label>
-                <!--/*@thymesVar id="tennisPlayer" type="TennisClubDeTennisser"*/-->
-                <input type="text" name = "tennisCourtId">
-                <label><b>Datum</b></label>
-                <input type="date" name = "date">
-                <br>
-                <br>
-                <label><b>Uur</b></label>
-                <input type="text" name = "hour">
-
-                <input type="submit" class="registerbtn" value="Reservatie aanmaken">
-            </div>
-        </form>
+    <div  class="dataInfo">
+        <button class="buttonData"  onclick="window.location.href='/addReservation'">Reserveren</button>
     </div>
+
     <br>
     <br>
     <img src="images/lijn-Tineke.svg">

@@ -71,6 +71,20 @@ public class TennisPlayerController {
         return "login/Reservation";
     }
 
+    // nieuwe reservatie
+    @GetMapping("/addReservation")
+    public String addReservation (Model model, HttpSession session)  throws SQLException {
+        model.addAttribute("tennisPlayer", session.getAttribute("user"));
+        return "login/AddReservation";
+    }
+
+    @GetMapping("add")
+    public String add (Model model, HttpSession session, Reservation reservation) throws Exception {
+        model.addAttribute("tennisPlayer", session.getAttribute("user"));
+        model.addAttribute("add", reservationServices.getAddReservation(reservation.getTennisPlayerId(),reservation.getTennisCourtId(), reservation.getDate(), reservation.getHour())) ;
+        return "login/ChoiceMenu";
+    }
+
     @GetMapping("deletereservation")
     public String deletereservation (Model model, HttpSession session, Reservation reservation) throws Exception {
         model.addAttribute("tennisPlayer", session.getAttribute("user"));

@@ -27,11 +27,12 @@ public class ReservationServices {
     }
 
     //toevoegen
-    public List<Reservation> getAddReservation(int tennisPlayerID, int tennisCourtID, Date date, String hour) throws Exception {
-        return reservationDAO.getAddReservation(tennisPlayerID,tennisCourtID,date, hour);
+    public Reservation getAddReservation(int tennisPlayerId,int tennisCourtID, Date date, String hour) throws Exception {
+        return reservationDAO.getAddReservation(tennisPlayerId,tennisCourtID,date, hour);
     }
 
     // verwijderen
+
     public Reservation getDeleteReservation(int id) throws Exception {
         return reservationDAO.getDeleteReservation(id);
     }

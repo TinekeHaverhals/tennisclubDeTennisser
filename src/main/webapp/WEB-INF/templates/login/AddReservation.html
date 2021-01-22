@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <title>Login de tennisser</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/css.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</head>
+
+<body>
+<nav>
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+        <i class="fas fa-bars"></i>
+    </label>
+    <img src="images/logo1.png" class="logoTennis">
+    <label class="logo">De Tennisser</label>
+    <ul>
+        <li><a class="active" href="/ChoiceMenu">De tennisser</a></li>
+        <li><a href="/data">Gegevens</a></li>
+        <li><a href="/reservation">Reservering</a></li>
+        <li><a href="/index">afmelden</a></li>
+    </ul>
+</nav>
+
+<img src="images/background.jpg" alt="Tennisveld" class="tennisveld">
+
+<h2> Tennisclub: De tennisser</h2>
+<h1>Welkom beste Tennisser</h1>
+
+<p>
+    Beste tennisser!
+    <br> Tennisclloub De Tennisser wenst u heel veel tennisplezier!
+</p>
+
+
+<h3>
+    Tennisveld reserveren
+</h3>
+
+<div class="register">
+    <form th:action= "@{add}">
+        <div class="container">
+            <label><b>uw TennisPlayerId = [[${tennisPlayer.id}]]</b></label> <br>
+            <label><b>Uw TennisPlayerId</b></label>
+            <input type="text" name = "tennisPlayerId">
+
+            <label><b>Tennisveld nummer</b></label>
+            <SELECT name="tennisCourtId">
+            <OPTION Value="1" name="tennisCourtId">1</OPTION>
+            <OPTION Value="2" name="tennisCourtId">2</OPTION>
+            <OPTION Value="3" name="tennisCourtId">3</OPTION>
+            <OPTION Value="4" name="tennisCourtId">4</OPTION>
+            <OPTION Value="5" name="tennisCourtId">5</OPTION>
+                <OPTION Value="6" name="tennisCourtId">6</OPTION>
+            </SELECT>
+            <br>
+            <br>
+            <label><b>Datum</b></label>
+            <input type="date" name = "date">
+            <br>
+            <br>
+            <label><b>Uur</b></label>
+            <SELECT name="hour">
+                <OPTION Value="9u00">9u00</OPTION>
+                <OPTION Value="10u00">10u00</OPTION>
+                <OPTION Value="11u00">11u00</OPTION>
+                <OPTION Value="12u00">12u00</OPTION>
+                <OPTION Value="13u00">13u00</OPTION>
+                <OPTION Value="14u00">14u00</OPTION>
+                <OPTION Value="15u00">15u00</OPTION>
+                <OPTION Value="16u00">16u00</OPTION>
+                <OPTION Value="17u00">17u00</OPTION>
+                <OPTION Value="18u00">18u00</OPTION>
+                <OPTION Value="19u00">19u00</OPTION>
+                <OPTION Value="20u00">20u00</OPTION>
+            </SELECT>
+
+            <input type="submit" class="registerbtn" value="Reservatie aanmaken">
+        </div>
+    </form>
+</div>
+<br>
+
+<br>
+
+<img src="images/lijn-Tineke.svg">
+<br>
+<div  class="dataInfo">
+    <button class="buttonData "  onclick="window.location.href='/reservation'">Terug naar reservaties </button>
+</div>
+<br>
+<br>
+<footer>
+    <br>
+    <p class="footertext">TennisClub: Den Tennisser bedankt u voor uw bezoek aan onze website bij vragen kan u een mailtje sturen. <a href="mailto:dentennisser@hotmail.com">dentennisser@hotmail.com</a> </p>
+
+    <br>
+</footer>
+</body>
+
+</html>
